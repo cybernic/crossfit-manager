@@ -1,13 +1,25 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}
+
+
+
+{% block avanzu_logo %}
+    <a href="/" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><i class="fa fa-home"></i></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg">{{ block('title') }}</span>
+    </a>
+{% endblock %}
+
+{% block avanzu_sidebar %}
+
+{% endblock %}
+
+
+
+
+{% block avanzu_admin_footer %}
+    <footer class="main-footer">
+        <strong>Copyright &copy; {{ "now"|date("Y") }} <a href="{{ url('homepage') }}">tutanzacrossfit.com</a>.</strong> Todos los derechos reservados.
+    </footer>
+{% endblock %}
