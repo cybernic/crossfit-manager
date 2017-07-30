@@ -6,7 +6,8 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: es
+    cache_type: file_system
 
 framework:
     #esi: ~
@@ -39,6 +40,14 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         admin_skin: skin-green
+    date:
+        format: 'F j, Y H:i'
+        interval_format: '%d days'
+        timezone: null
+    number_format:
+        decimals: 0
+        decimal_point: ','
+        thousands_separator: ' '
 
 # Doctrine Configuration
 doctrine:
@@ -69,3 +78,10 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+doctrine_cache:
+    providers:
+        my_markdown_cache:
+            type: '%cache_type%'
+            file_system:
+                directory: '%kernel.cache_dir%/markdown_cache'
