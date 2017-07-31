@@ -16,10 +16,14 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
+            // Installed Bundles
             new Avanzu\AdminThemeBundle\AvanzuAdminThemeBundle(),
             new \Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
+            new \FOS\UserBundle\FOSUserBundle(),
 
+            // Custom Bundles
             new AppBundle\AppBundle(),
+            new \ScheduleBundle\ScheduleBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
