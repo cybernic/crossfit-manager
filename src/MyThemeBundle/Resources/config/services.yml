@@ -1,0 +1,24 @@
+#parameters:
+#    my_theme_bundle.show_user_listener.class: MyThemeBundle\EventListener\ShowUserListener
+
+#services:
+#    my_theme_bundle.show_user_listener:
+#        class: %my_theme_bundle.show_user_listener.class%
+#        calls:
+#            - [setContainer, ["@service_container"]]
+#        tags:
+#            - { name: kernel.event_listener, event: theme.navbar_user, method: onShowUser }
+
+parameters:
+    my_theme_bundle.menu_listener.class: MyThemeBundle\EventListener\MenuItemListListener
+    my_theme_bundle.breadcrumb_listener.class: MyThemeBundle\EventListener\MenuItemListListener
+
+services:
+    my_theme_bundle.menu_listener:
+        class: "%my_theme_bundle.menu_listener.class%"
+        tags:
+            - { name: kernel.event_listener, event: theme.sidebar_setup_menu, method: onSetupMenu }
+    my_theme_bundle.breadcrumb_listener:
+        class: "%my_theme_bundle.breadcrumb_listener.class%"
+        tags:
+            - { name: kernel.event_listener, event: theme.breadcrumb, method: onSetupMenu }
