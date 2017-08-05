@@ -1,5 +1,9 @@
 {% extends 'AvanzuAdminThemeBundle:layout:default-layout.html.twig' %}
 
+{% block page_title %}
+    {% block avanzu_page_title %}Mi Perfil{% endblock %}
+{% endblock %}
+
 {% block avanzu_logo_mini %}<b>T</b>{% endblock %}
 {% block avanzu_logo_lg %}<img src="{{ asset('img/logo-horizontal-256.png') }}" width="128" height="45">{% endblock %}
 

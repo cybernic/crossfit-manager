@@ -1,0 +1,6 @@
+ScheduleBundle\Entity\Program:
+    program_{1..20}:
+        title: <text(15)>
+        description: <text(100)>
+        color: <hexcolor()>
+        isActive: <boolean(75)>

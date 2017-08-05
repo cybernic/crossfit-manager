@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ScheduleBundle\Repository\ProgramRepository")
  * @ORM\Table(name="program")
  */
 class Program
@@ -34,16 +34,16 @@ class Program
     private $color;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="boolean")
      */
-    private $active;
+    private $isActive;
 
-    public function __construct($title, $description, $color = '#fff', $active = 1)
+    public function __construct($title = null, $description = null, $color = '#fff', $isActive = 1)
     {
         $this->setTitle($title);
         $this->setDescription($description);
         $this->setColor($color);
-        $this->setActive($active);
+        $this->setActive($isActive);
     }
 
     /**
@@ -107,7 +107,7 @@ class Program
      */
     public function getActive()
     {
-        return $this->active;
+        return $this->isActive;
     }
 
     /**

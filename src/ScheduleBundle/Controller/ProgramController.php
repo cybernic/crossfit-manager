@@ -32,7 +32,8 @@ class ProgramController extends Controller
     public function listAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $programs = $em->getRepository('ScheduleBundle:Program')->findAll();
+        dump($em->getRepository('ScheduleBundle:Program'));
+        $programs = $em->getRepository('ScheduleBundle:Program')->findAllActive();
 
         return $this->render('program/list.html.twig', [
             'programs' => $programs,
