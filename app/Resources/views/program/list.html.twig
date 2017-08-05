@@ -1,0 +1,18 @@
+{% extends 'adminlte.base.html.twig' %}
+
+{% block avanzu_page_title %}Programas{% endblock %}
+{% block avanzu_page_subtitle %}Programas{% endblock %}
+
+
+
+{% block avanzu_page_content %}
+    <table>
+    {% for program in programs %}
+        <tr>
+            <td>
+                <a href="{{ path('schedule_program_show', {id: program.id}) }}">{{ program.title }}</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

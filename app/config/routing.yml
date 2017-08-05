@@ -1,3 +1,7 @@
+my_theme:
+    resource: "@MyThemeBundle/Resources/config/routing.yml"
+    prefix:   /
+
 schedule:
     resource: "@ScheduleBundle/Controller/"
     type:     annotation
@@ -9,3 +13,9 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+avanzu_admin_home:
+    path: /profile
+    defaults: {_controller: AvanzuAdminThemeBundle:Default:index}
+    options:
+        avanzu_admin_route: welcome

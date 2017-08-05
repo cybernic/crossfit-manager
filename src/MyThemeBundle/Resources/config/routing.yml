@@ -1,0 +1,3 @@
+my_theme_homepage:
+    path:     /my-theme-homepage
+    defaults: { _controller: MyThemeBundle:Default:index }

@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@ScheduleBundle/Resources/config/services.yml" }
+    - { resource: "@MyThemeBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -40,7 +41,7 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     globals:
-        admin_skin: skin-green
+        admin_skin: sidebar-mini skin-green
     date:
         format: 'F j, Y H:i'
         interval_format: '%d days'
@@ -87,3 +88,20 @@ fos_user:
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
+
+avanzu_admin_theme:
+    use_twig   : true
+    enable_demo: false
+    theme:
+        default_avatar   : bundles/avanzuadmintheme/img/avatar.png
+        skin             : skin-green  # see skin listing for viable options
+        fixed_layout     : false      # -------------------------------------------------------
+        boxed_layout     : false      # these settings relate directly to the "Layout Options"
+        collapsed_sidebar: false      # described in the adminlte documentation
+        mini_sidebar     : true
+        control_sidebar  : false      # controls wether the right hand panel will be rendered
+
+    #knp_menu:                         # knp menu integration
+    #    enable         : true
+    #    main_menu      : avanzu_main  # the menu builder alias to use for the main menu
+    #    breadcrumb_menu: false        # the menu builder alias to use for the breacrumbs

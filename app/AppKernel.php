@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             // Custom Bundles
             new AppBundle\AppBundle(),
             new \ScheduleBundle\ScheduleBundle(),
+            new MyThemeBundle\MyThemeBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
