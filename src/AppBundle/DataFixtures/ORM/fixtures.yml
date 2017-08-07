@@ -1,6 +1,28 @@
+AppBundle\Entity\User:
+    user_{1..20}:
+        username: <text(15)>
+        email: <email()>
+        password: <text(32)>
+        enabled: 1
+
 ScheduleBundle\Entity\Program:
     program_{1..20}:
         title: <text(15)>
         description: <text(100)>
         color: <hexcolor()>
         isActive: <boolean(75)>
+
+ScheduleBundle\Entity\Event:
+    event_{1..100}:
+        program: '@program_*'
+        user: '@user_*'
+        startsAt: <dateTimeBetween('now', '+1 month')>
+        duration: <eventDuration()>
+        isActive: <boolean(75)>
+
+ScheduleBundle\Entity\Reservation:
+    reservation_{1..150}:
+        user: '@user_*'
+        event: '@event_*'
+        createdAt: <dateTimeBetween('-10 days', 'now')>
+        updatedAt: <dateTimeBetween($createdAt, 'now')>

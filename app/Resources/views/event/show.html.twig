@@ -1,0 +1,16 @@
+{% extends 'adminlte.base.html.twig' %}
+
+{% block avanzu_page_title %}Evento{% endblock %}
+{% block avanzu_page_subtitle %}{{ event.program.title }}{% endblock %}
+
+{% block avanzu_page_content %}
+    <div>
+        {{ event.program.title }}
+    </div>
+    <div>
+        <h4>Reservaciones: {{ event.reservations|length }}</h4>
+        {% for reservation in event.reservations %}
+            {{ reservation.createdAt|date('Y-m-d H:i:s') }}<br>
+        {% endfor %}
+    </div>
+{% endblock %}

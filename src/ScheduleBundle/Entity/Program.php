@@ -26,19 +26,19 @@ class Program
     /**
      * @ORM\Column(type="string")
      */
-    private $description;
+    private $description = '';
 
     /**
      * @ORM\Column(type="string", nullable=true, length=7, options={"fixed" = true})
      */
-    private $color;
+    private $color = '#fff';
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isActive;
+    private $isActive = true;
 
-    public function __construct($title = null, $description = null, $color = '#fff', $isActive = 1)
+    public function __construct($title = null, $description = null, $color = '#fff', $isActive = true)
     {
         $this->setTitle($title);
         $this->setDescription($description);
