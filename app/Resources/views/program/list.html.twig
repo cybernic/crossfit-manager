@@ -1,18 +1,71 @@
 {% extends 'adminlte.base.html.twig' %}
 
 {% block avanzu_page_title %}Programas{% endblock %}
-{% block avanzu_page_subtitle %}Programas{% endblock %}
+{% block avanzu_page_subtitle %}{% endblock %}
 
 
 
-{% block avanzu_page_content %}
-    <table>
-    {% for program in programs %}
-        <tr>
-            <td>
-                <a href="{{ path('schedule_program_show', {id: program.id}) }}">{{ program.title }}</a>
-            </td>
-        </tr>
-    {% endfor %}
-    </table>
+{% block custom_page_content %}
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"></h3>
+
+                    <div class="box-tools">
+                        <a href="{{ path('schedule_program_create') }}" class="btn btn-success btn-sm">
+                            Nueva programa
+                        </a>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <th style="min-width:100px;">Programa</th>
+                            <th>Descripción</th>
+                            <th>Color</th>
+                            <th>Estado</th>
+                            <th></th>
+                        </tr>
+                        {% for program in programs %}
+                            <tr>
+                                <td>{{ program.id }}</td>
+                                <td>
+                                    <strong>
+                                        <a href="{{ path('schedule_program_show', {id: program.id}) }}">{{ program.title }}</a>
+                                    </strong>
+                                </td>
+                                <td>{{ program.description }}</td>
+                                <td>
+                                    <i class="fa fa-square" style="color:{{ program.color }}"></i> {{ program.color }}
+                                </td>
+                                <td>
+                                    {% if program.isActive %}
+                                        <span class="label label-success">Activo</span>
+                                    {% else %}
+                                        <span class="label label-danger">No activo</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <i class="fa fa-pencil-square-o"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
 {% endblock %}

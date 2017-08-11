@@ -19,7 +19,7 @@ class Reservation
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="reservations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
@@ -40,6 +40,12 @@ class Reservation
      */
     private $updatedAt;
 
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+    }
+
     /**
      * @return mixed
      */
@@ -57,7 +63,7 @@ class Reservation
     }
 
     /**
-     * @param mixed $user
+     * @param User $user
      */
     public function setUser(User $user)
     {
@@ -73,7 +79,7 @@ class Reservation
     }
 
     /**
-     * @param mixed $event
+     * @param Event $event
      */
     public function setEvent(Event $event)
     {

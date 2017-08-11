@@ -1,0 +1,19 @@
+{% extends 'adminlte.base.html.twig' %}
+
+{% block avanzu_page_title %}Nueva Programa{% endblock %}
+{% block avanzu_page_subtitle %}{% endblock %}
+
+{% block custom_page_content %}
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="box box-primary">
+                <div class="box-body">
+                    {{ form_start(programForm) }}
+                    {{ form_widget(programForm) }}
+                    <button type="submit" class="btn btn-success">Crear programa</button>
+                    {{ form_end(programForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

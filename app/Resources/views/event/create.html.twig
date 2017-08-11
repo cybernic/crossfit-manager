@@ -1,0 +1,38 @@
+{% extends 'adminlte.base.html.twig' %}
+
+{% block avanzu_page_title %}Nuevo Evento{% endblock %}
+{% block avanzu_page_subtitle %}{% endblock %}
+
+{% block avanzu_head %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
+{% endblock %}
+
+{% block avanzu_javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            $(".js-datepicker input.timepicker").datepicker({
+                format: 'dd/mm/yyyy'
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block custom_page_content %}
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="box box-primary">
+                <div class="box-body">
+                    {{ form_start(eventForm) }}
+                    {{ form_widget(eventForm) }}
+                    <button type="submit" class="btn btn-success">Crear evento</button>
+                    {{ form_end(eventForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

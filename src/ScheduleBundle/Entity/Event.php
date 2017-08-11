@@ -55,7 +55,6 @@ class Event
      */
     private $reservations;
 
-
     public function __construct()
     {
         $this->reservations = new ArrayCollection();

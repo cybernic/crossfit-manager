@@ -11,14 +11,14 @@
 
 parameters:
     my_theme_bundle.menu_listener.class: MyThemeBundle\EventListener\MenuItemListListener
-    my_theme_bundle.breadcrumb_listener.class: MyThemeBundle\EventListener\MenuItemListListener
+    #my_theme_bundle.breadcrumb_listener.class: MyThemeBundle\EventListener\MenuItemListListener
 
 services:
     my_theme_bundle.menu_listener:
         class: "%my_theme_bundle.menu_listener.class%"
         tags:
             - { name: kernel.event_listener, event: theme.sidebar_setup_menu, method: onSetupMenu }
-    my_theme_bundle.breadcrumb_listener:
-        class: "%my_theme_bundle.breadcrumb_listener.class%"
-        tags:
-            - { name: kernel.event_listener, event: theme.breadcrumb, method: onSetupMenu }
+    #my_theme_bundle.breadcrumb_listener:
+    #    class: "%my_theme_bundle.breadcrumb_listener.class%"
+    #    tags:
+    #        - { name: kernel.event_listener, event: theme.breadcrumb, method: onSetupMenu }

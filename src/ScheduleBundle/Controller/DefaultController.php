@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/schedule")
+     * @Route("/schedule", name="schedule_default_index")
      */
     public function indexAction()
     {
@@ -32,14 +32,24 @@ class DefaultController extends Controller
         /** @var Event $event */
         foreach ($events as $event) {
             $program = $event->getProgram();
+            $progressPercent = (int)(count($event->getReservations()) / $program->getPlaces() * 100);
+            $progress = '<div class="progress progress-xxs" style="margin:2px 0 0;">
+                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$progressPercent.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$progressPercent.'%">
+                  <span class="sr-only">'.$progressPercent.'%</span>
+                </div>
+              </div>';
+            $reservations = '<br><small>Reservas: ' . count($event->getReservations()) .  ' de ' . $program->getPlaces() . '</small>' . $progress;
 
             $data[] = [
-                'title' => $program->getTitle(),
+                'title' => $program->getTitle() . $reservations,
                 'start' => $event->getStartsAt()->format('Y-m-d H:i:s'),
-                'end' => $event->getStartsAt()->add(new \DateInterval("PT{$event->getDuration()}M"))->format('Y-m-d H:i:s'),
+                'end' => $event->getStartsAt()->add(
+                    new \DateInterval("PT{$event->getDuration()}M")
+                )->format('Y-m-d H:i:s'),
                 'backgroundColor' => $program->getColor(),
                 'borderColor' => $program->getColor(),
                 'allDay' => false,
+                'url' => $this->generateUrl('schedule_event_show', ['id' => $event->getId()]),
             ];
         }
 

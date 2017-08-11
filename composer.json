@@ -60,7 +60,8 @@
         ]
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "vendor-dir": "/var/vendor"
     },
     "extra": {
         "symfony-app-dir": "app",

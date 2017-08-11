@@ -149,10 +149,11 @@
             minTime: '07:00:00',
             maxTime: '22:00:00',
             contentHeight: 'auto',
-            timelineWeek: {
-                slotDuration: '00:30',
+            slotDuration: '00:15:00',
+            /*timelineWeek: {
+                slotDuration: '00:05:00',
                 type: 'timeline'
-            },
+            },*/
             snapDuration: '00:05:00',
             visibleRange: function(currentDate) {
                 return {
@@ -166,8 +167,16 @@
                     end: currentDate.clone().add(1, 'months')
                 };
             },
+            customButtons: {
+                newEvent: {
+                    text: 'Crear entrenamiento',
+                    click: function() {
+                        window.location.href = '{{ path('schedule_event_create') }}'
+                    }
+                }
+            },
             header: {
-                left: 'prev,next today',
+                left: 'prev,next today newEvent',
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
@@ -179,6 +188,10 @@
             },
             //Random default events
             events: '{{ path('schedule_get_events') }}',
+            eventRender: function( event, element, view ) {
+                var title = element.find('.fc-title, .fc-list-item-title');
+                title.html(title.text());
+            },
             /*[
                 {
                     title: 'All Day Event',

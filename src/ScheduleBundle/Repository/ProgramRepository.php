@@ -12,11 +12,16 @@ class ProgramRepository extends EntityRepository
      */
     public function findAllActive()
     {
-        return $this->createQueryBuilder('program')
-            ->andWhere('program.isActive = :isActive')
-            ->setParameter('isActive', true)
+        return $this->createActiveOnlyQueryBuilder()
             ->orderBy('program.title', 'ASC')
             ->getQuery()
             ->execute();
+    }
+
+    public function createActiveOnlyQueryBuilder()
+    {
+        return $this->createQueryBuilder('program')
+            ->andWhere('program.isActive = :isActive')
+            ->setParameter('isActive', true);
     }
 }

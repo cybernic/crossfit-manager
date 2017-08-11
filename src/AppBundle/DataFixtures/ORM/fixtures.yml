@@ -10,6 +10,7 @@ ScheduleBundle\Entity\Program:
         title: <text(15)>
         description: <text(100)>
         color: <hexcolor()>
+        places: <numberBetween(1, 10)>
         isActive: <boolean(75)>
 
 ScheduleBundle\Entity\Event:

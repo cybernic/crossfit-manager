@@ -34,6 +34,11 @@ class Program
     private $color = '#fff';
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $places;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private $isActive = true;
@@ -43,7 +48,12 @@ class Program
         $this->setTitle($title);
         $this->setDescription($description);
         $this->setColor($color);
-        $this->setActive($isActive);
+        $this->setIsActive($isActive);
+    }
+
+    public function __toString()
+    {
+        return $this->title;
     }
 
     /**
@@ -105,24 +115,32 @@ class Program
     /**
      * @return mixed
      */
-    public function getActive()
+    public function getIsActive()
     {
         return $this->isActive;
     }
 
     /**
-     * @param mixed $active
+     * @param mixed $isActive
      */
-    public function setActive($active)
+    public function setIsActive($isActive)
     {
-        $this->active = $active;
+        $this->isActive = $isActive;
     }
 
     /**
-     * @param mixed $name
+     * @return mixed
      */
-    public function setName($name)
+    public function getPlaces()
     {
-        $this->name = $name;
+        return $this->places;
+    }
+
+    /**
+     * @param mixed $places
+     */
+    public function setPlaces($places)
+    {
+        $this->places = $places;
     }
 }
