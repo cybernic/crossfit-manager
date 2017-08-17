@@ -1,7 +1,7 @@
 {% extends "@FOSUser/layout.html.twig" %}
 
 {% block avanzu_page_title %}Mi Perfil{% endblock %}
-{% block avanzu_page_subtitle %}@{{ app.user.username }}{% endblock %}
+{% block avanzu_page_subtitle %}@{{ app.user.shortName }}{% endblock %}
 
 {% block fos_user_content %}
 {% include "@FOSUser/Profile/show_content.html.twig" %}

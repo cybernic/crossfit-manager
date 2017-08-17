@@ -1,9 +1,12 @@
 AppBundle\Entity\User:
     user_{1..20}:
-        username: <text(15)>
+        username: <username()>
+        name: <firstName()>
+        surname: <lastName()>
         email: <email()>
-        password: <text(32)>
+        password: <password()>
         enabled: 1
+        createdAt: <dateTimeBetween('-180 days', 'now')>
 
 ScheduleBundle\Entity\Program:
     program_{1..20}:
@@ -27,3 +30,10 @@ ScheduleBundle\Entity\Reservation:
         event: '@event_*'
         createdAt: <dateTimeBetween('-10 days', 'now')>
         updatedAt: <dateTimeBetween($createdAt, 'now')>
+
+ScheduleBundle\Entity\Notification:
+    notification_{1..10}:
+        user: '@user_*'
+        createdAt: <dateTimeBetween('-180 days', 'now')>
+        title: <text(32)>
+        text: <text(500)>

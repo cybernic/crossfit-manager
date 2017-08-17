@@ -12,17 +12,11 @@ class ProgramFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('description')
-            ->add('color')
+            ->add('title', null, ['trim' => true])
+            ->add('description', null, ['trim' => true])
+            ->add('color', null, ['trim' => true])
             ->add('places', ChoiceType::class, [
                 'choices' => array_combine(range(1, 20), range(1, 20)),
-            ])
-            ->add('isActive', ChoiceType::class, [
-                'choices' => [
-                    'Sí' => true,
-                    'No' => false,
-                ]
             ]);
     }
 

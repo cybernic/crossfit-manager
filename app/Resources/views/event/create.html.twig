@@ -24,12 +24,23 @@
 
 {% block custom_page_content %}
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-12 col-md-9 col-lg-6">
             <div class="box box-primary">
                 <div class="box-body">
                     {{ form_start(eventForm) }}
-                    {{ form_widget(eventForm) }}
-                    <button type="submit" class="btn btn-success">Crear evento</button>
+
+                    {{ form_row(eventForm.program) }}
+                    {{ form_row(eventForm.user) }}
+                    <div class="row">
+                        <div class="col-md-12 col-lg-8">
+                            {{ form_row(eventForm.startsAt) }}
+                        </div>
+                        <div class="col-md-4 col-lg-4">
+                            {{ form_row(eventForm.duration) }}
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success" formnovalidate>Crear evento</button>
                     {{ form_end(eventForm) }}
                 </div>
             </div>

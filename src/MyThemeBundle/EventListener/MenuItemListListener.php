@@ -21,6 +21,7 @@ class MenuItemListListener {
             new MenuItemModel('right-menu-profile', 'Mi Perfil', 'fos_user_profile_show', [], 'fa fa-edit'),
             $programMenu = new MenuItemModel('right-menu-program', 'Programas', 'schedule_program_index', [], 'fa fa-calendar'),
             new MenuItemModel('right-menu-schedule', 'Horarios', 'schedule_default_index', [], 'fa fa-calendar'),
+            new MenuItemModel('right-menu-logout', 'Salir', 'fos_user_security_logout', [], 'fa fa-sign-out'),
         ];
 
         return $this->activateByRoute($request->get('_route'), $menuItems);

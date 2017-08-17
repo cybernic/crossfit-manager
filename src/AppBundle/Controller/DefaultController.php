@@ -12,12 +12,25 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="welcome")
+     * @Route("/", name="homepage")
      *
      * @param Request $request
      * @return RedirectResponse
      */
     public function indexAction(Request $request)
+    {
+        return $this->redirect(
+            $this->generateUrl('fos_user_profile_show')
+        );
+    }
+
+    /**
+     * @Route("/", name="welcome")
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function index2Action(Request $request)
     {
         return $this->redirect(
             $this->generateUrl('fos_user_profile_show')

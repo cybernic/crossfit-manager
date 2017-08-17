@@ -40,9 +40,15 @@
                     <h3 class="box-title">Reservas efectuadas</h3>
 
                     <div class="box-tools pull-right">
-                        <a href="{{ path('schedule_event_cancel_reservation', {id:event.id}) }}"
-                           class="btn btn-sm btn-default btn-cancel-reservation">
-                            <i class="fa fa-times"></i> Cancelar reserva
+                        {% if hasReservation %}
+                            <a href="{{ path('schedule_event_cancel_reservation', {id:event.id}) }}"
+                               class="btn btn-sm btn-default btn-cancel-reservation">
+                                <i class="fa fa-times"></i> Cancelar reserva
+                            </a>
+                        {% endif %}
+                        <a href="{{ path('schedule_event_drop', {id:event.id}) }}"
+                           class="btn btn-sm btn-danger btn-cancel-reservation">
+                            <i class="fa fa-trash-o"></i> Eliminar evento
                         </a>
                     </div>
                 </div>

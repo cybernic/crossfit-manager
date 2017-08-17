@@ -5,6 +5,7 @@ namespace ScheduleBundle\Entity;
 use AppBundle\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="ScheduleBundle\Repository\EventRepository")
@@ -20,6 +21,7 @@ class Event
     private $id;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="Program")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -28,17 +30,22 @@ class Event
     /**
      * Coach user
      *
+     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\DateTime()
      * @ORM\Column(type="datetime")
      */
     private $startsAt;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Range(min=15, max=120)
      * @ORM\Column(type="integer")
      */
     private $duration;

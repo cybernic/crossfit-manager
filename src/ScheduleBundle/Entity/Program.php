@@ -3,6 +3,7 @@
 namespace ScheduleBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -19,11 +20,13 @@ class Program
     private $id;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
     private $title;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string")
      */
     private $description = '';
@@ -34,6 +37,7 @@ class Program
     private $color = '#fff';
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="integer")
      */
     private $places;
@@ -42,14 +46,6 @@ class Program
      * @ORM\Column(type="boolean")
      */
     private $isActive = true;
-
-    public function __construct($title = null, $description = null, $color = '#fff', $isActive = true)
-    {
-        $this->setTitle($title);
-        $this->setDescription($description);
-        $this->setColor($color);
-        $this->setIsActive($isActive);
-    }
 
     public function __toString()
     {

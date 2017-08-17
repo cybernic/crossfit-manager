@@ -256,6 +256,7 @@
                 }
             ], */
             editable: true,
+            selectable: true,
             droppable: true, // this allows things to be dropped onto the calendar !!!
             drop: function (date, allDay) { // this function is called when something is dropped
 
@@ -280,11 +281,48 @@
                     // if so, remove the element from the "Draggable Events" list
                     $(this).remove();
                 }
+            },
 
+            select: function(start, end, jsEvent, view) {
+                console.log(start, end);
+            },
+            eventResize: function(event, delta, revertFunc, jsEvent, ui, view) {
+                console.log(event, delta);
             }
+
         });
 
+        function updateEvent(event, revertFunc) {
+            var end = '';
+
+            if (event.end == undefined) {
+                end = event.start.add(2, 'hours');
+            } else {
+                end = event.end.format();
+            }
+
+            $.ajax({
+                url: '/event/edit/' + event.id,
+                type: 'PATCH',
+                data: {Event: {
+                    title: event.title,
+                    start: event.start.format(),
+                    end: end,
+                    all_day: event.allDay ? 1 : 0
+                }},
+                success: function(data) {
+                    if (data.status == 1) {
+                        alertify.success(data.message);
+                    } else {
+                        alertify.error(data.message);
+                        revertFunc();
+                    }
+                }
+            });
+        }
+
         /* ADDING EVENTS */
+        /*
         var currColor = "#3c8dbc"; //Red by default
         //Color chooser button
         var colorChooser = $("#color-chooser-btn");
@@ -315,6 +353,7 @@
             //Remove event from text input
             $("#new-event").val("");
         });
+        */
     });
 </script>
 {% endblock %}

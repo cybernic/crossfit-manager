@@ -18,8 +18,8 @@
                 {% endif %}
             </div>
             <div class="pull-left info">
-                <p>{{ app.user.username }}</p>
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <p>{{ app.user.shortName }}</p>
+                <a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
     {% endif %}
@@ -28,21 +28,16 @@
 {% block avanzu_sidebar_search %}{% endblock %}
 
 {% block avanzu_page_content %}
-    {# Success Flash Message #}
-    {% for msg in app.session.flashBag.get('success') %}
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            {{ msg }}
-        </div>
-    {% endfor %}
-
-    {# Error Flash Message #}
-    {% for msg in app.session.flashBag.get('error') %}
-        <div class="alert alert-danger alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            {{ msg }}
-        </div>
-    {% endfor %}
+    {% if app.request.hasPreviousSession %}
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
 
     {% block custom_page_content %}{% endblock %}
 

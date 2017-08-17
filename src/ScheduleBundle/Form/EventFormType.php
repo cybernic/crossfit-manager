@@ -45,13 +45,6 @@ class EventFormType extends AbstractType
                     [15, 30, 45, 60, 75, 90, 115, 120],
                     [15, 30, 45, 60, 75, 90, 115, 120]
                 )
-            ])
-
-            ->add('isActive', ChoiceType::class, [
-                'choices' => [
-                    'Sí' => true,
-                    'No' => false,
-                ]
             ]);
     }
 

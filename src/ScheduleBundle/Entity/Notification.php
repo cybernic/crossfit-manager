@@ -4,14 +4,15 @@ namespace ScheduleBundle\Entity;
 
 use AppBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assets;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="reservation")
+ * @ORM\Entity(repositoryClass="ScheduleBundle\Repository\NotificationRepository")
+ * @ORM\Table(name="notification")
  */
-class Reservation
+class Notification
 {
+    const PAGE_SIZE = 5;
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -20,28 +21,36 @@ class Reservation
     private $id;
 
     /**
-     * @Assets\NotBlank()
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="reservations")
+     * Coach user
+     *
+     * @Assert\NotBlank()
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
     /**
-     * @Assets\NotBlank()
-     * @ORM\ManyToOne(targetEntity="Event", inversedBy="reservations")
-     * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank()
+     * @ORM\Column(type="string")
      */
-    private $event;
+    private $title;
 
     /**
-     * @Assets\NotBlank()
-     * @Assets\DateTime()
+     * @Assert\NotBlank()
+     * @ORM\Column(type="text", length=4096)
+     */
+    private $text;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\DateTime()
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
+
     /**
-     * @Assets\DateTime()
+     * @Assert\DateTime()
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updatedAt = null;
@@ -52,7 +61,7 @@ class Reservation
     }
 
     /**
-     * @return mixed
+     * @return integer
      */
     public function getId()
     {
@@ -60,7 +69,7 @@ class Reservation
     }
 
     /**
-     * @return mixed
+     * @return User
      */
     public function getUser()
     {
@@ -78,17 +87,33 @@ class Reservation
     /**
      * @return mixed
      */
-    public function getEvent()
+    public function getTitle()
     {
-        return $this->event;
+        return $this->title;
     }
 
     /**
-     * @param Event $event
+     * @param mixed $title
      */
-    public function setEvent(Event $event)
+    public function setTitle($title)
     {
-        $this->event = $event;
+        $this->title = $title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * @param mixed $text
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
     }
 
     /**
@@ -108,7 +133,7 @@ class Reservation
     }
 
     /**
-     * @return \DateTime
+     * @return mixed
      */
     public function getUpdatedAt()
     {
@@ -116,7 +141,7 @@ class Reservation
     }
 
     /**
-     * @param \DateTime $updatedAt
+     * @param mixed $updatedAt
      */
     public function setUpdatedAt($updatedAt)
     {

@@ -1,0 +1,15 @@
+{{ form_start(programForm) }}
+{{ form_row(programForm.title) }}
+{{ form_row(programForm.description) }}
+
+<div class="row">
+    <div class="col-xs-4">
+        {{ form_row(programForm.places) }}
+    </div>
+    <div class="col-xs-4">
+        {{ form_row(programForm.color, {type: 'color'}) }}
+    </div>
+</div>
+
+<button type="submit" class="btn btn-success" formnovalidate>Guardar</button>
+{{ form_end(programForm) }}

@@ -1,5 +1,16 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends "@FOSUser/login.layout.html.twig" %}
 
-{% block fos_user_content %}
+{% block avanzu_login_box_msg %}
+    {% if error|default(false) %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+{% endblock avanzu_login_box_msg %}
+
+{% block avanzu_login_form %}
     {{ include('@FOSUser/Security/login_content.html.twig') }}
-{% endblock fos_user_content %}
+{% endblock avanzu_login_form %}
+
+{% block _______avanzu_login_actions %}
+    <a href="{{ path('fos_user_resetting_request') }}">I forgot my password</a><br>
+    <a href="{{ path('fos_user_registration_register') }}" class="text-center">Register a new membership</a>
+{% endblock _______avanzu_login_actions %}

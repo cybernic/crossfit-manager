@@ -13,12 +13,30 @@ use ScheduleBundle\Entity\Reservation;
  */
 class User extends \FOS\UserBundle\Model\User implements \Avanzu\AdminThemeBundle\Model\UserInterface
 {
+    const ROLE_COACH = 'ROLE_COACH';
+    const ROLE_ADMIN = 'ROLE_ADMIN';
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $name = null;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $surname = null;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
 
     /**
      * One User has Many Reservations.
@@ -30,6 +48,7 @@ class User extends \FOS\UserBundle\Model\User implements \Avanzu\AdminThemeBundl
     {
         parent::__construct();
 
+        $this->createdAt = new \DateTime();
         $this->reservations = new ArrayCollection();
     }
 
@@ -38,9 +57,36 @@ class User extends \FOS\UserBundle\Model\User implements \Avanzu\AdminThemeBundl
         return '';
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
-        return '';
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * @param string $surname
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
     }
 
     public function getMemberSince()
@@ -62,6 +108,42 @@ class User extends \FOS\UserBundle\Model\User implements \Avanzu\AdminThemeBundl
     {
         return '';
     }
+
+    public function setEmail($email)
+    {
+        $this->setUsername($email);
+
+        return parent::setEmail($email);
+    }
+
+    public function getShortName()
+    {
+        $shortNameParts   = [];
+        $shortNameParts[] = $this->getName();
+
+        foreach(explode(' ', $this->getSurname()) as $surname) {
+            $shortNameParts[] = strtoupper(substr(trim($surname), 0, 1)) . '.';
+        }
+
+        return implode(' ', $shortNameParts);
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
 
     /**
      * @return ArrayCollection|Reservation[]

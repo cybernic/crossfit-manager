@@ -1,5 +1,5 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends "@FOSUser/login.layout.html.twig" %}
 
-{% block fos_user_content %}
-{% include "@FOSUser/Resetting/request_content.html.twig" %}
-{% endblock fos_user_content %}
+{% block avanzu_login_form %}
+    {% include "@FOSUser/Resetting/request_content.html.twig" %}
+{% endblock avanzu_login_form %}

@@ -4,18 +4,18 @@ namespace ScheduleBundle\Controller;
 
 use AppBundle\Entity\User;
 use ScheduleBundle\Entity\Event;
-use ScheduleBundle\Entity\Program;
 use ScheduleBundle\Entity\Reservation;
 use ScheduleBundle\Form\EventFormType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class EventController extends Controller
 {
     /**
      * @Route("/event/create", name="schedule_event_create")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function createAction(Request $request)
     {
@@ -32,7 +32,7 @@ class EventController extends Controller
 
             $this->addFlash('success', 'El evento creado con éxito.');
 
-            return $this->redirectToRoute('schedule');
+            return $this->redirectToRoute('schedule_default_index');
         }
 
         return $this->render('event/create.html.twig', [
@@ -43,11 +43,10 @@ class EventController extends Controller
     /**
      * @Route("/event/{id}", name="schedule_event_show")
      */
-    public function showAction($id)
+    public function showAction(Event $event)
     {
         /** @var User $user */
-        $user = $this->get('security.token_storage')->getToken()->getUser();
-        $event = $this->getEvent($id);
+        $user = $this->getUser();
 
         return $this->render('event/show.html.twig', [
             'event' => $event,
@@ -56,13 +55,12 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/event/reserve/{id}", name="schedule_event_reserve")
+     * @Route("/event/{id}/reserve", name="schedule_event_reserve")
      */
-    public function reserveAction($id)
+    public function reserveAction(Event $event)
     {
         /** @var User $user */
-        $user = $this->get('security.token_storage')->getToken()->getUser();
-        $event = $this->getEvent($id);
+        $user = $this->getUser();
 
         if (!$user->hasReservation($event)) {
             $reservation = new Reservation();
@@ -78,17 +76,37 @@ class EventController extends Controller
             $this->addFlash('error', 'Ya has reservado tu plaza.');
         }
 
-        return $this->redirectToRoute('schedule_event_show', ['id' => $id]);
+        return $this->redirectToRoute('schedule_event_show', ['id' => $event->getId()]);
     }
 
     /**
-     * @Route("/event/cancel-reservation/{id}", name="schedule_event_cancel_reservation")
+     * @Route("/event/{id}/drop", name="schedule_event_drop")
+     * @Security("has_role('ROLE_ADMIN')")
      */
-    public function cancelReservationAction($id)
+    public function dropAction(Event $event)
+    {
+        if ($event->getReservations()->count() > 0) {
+            $this->addFlash('error', 'No se ha podido eliminar el evento. Primero cancela todas las reservas.');
+            return $this->redirectToRoute('schedule_event_show', ['id' => $event->getId()]);
+        }
+
+        $event->setIsActive(false);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($event);
+        $em->flush();
+
+        $this->addFlash('success', 'El evento se ha eliminado con éxito.');
+
+        return $this->redirectToRoute('schedule_program_index');
+    }
+
+    /**
+     * @Route("/event/{id}/cancel-reservation", name="schedule_event_cancel_reservation")
+     */
+    public function cancelReservationAction(Event $event)
     {
         /** @var User $user */
-        $user = $this->get('security.token_storage')->getToken()->getUser();
-        $event = $this->getEvent($id);
+        $user = $this->getUser();
 
         if ($user->hasReservation($event)) {
             $reservation = $user->getReservationByEvent($event);
@@ -108,22 +126,6 @@ class EventController extends Controller
             $this->addFlash('error', 'No tienes la reserva de este evento');
         }
 
-        return $this->redirectToRoute('schedule_event_show', ['id' => $id]);
-    }
-
-    /**
-     * @param integer $id
-     * @return Event|null|object
-     */
-    private function getEvent($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $event = $em->getRepository('ScheduleBundle:Event')->find($id);
-
-        if (!$event) {
-            throw $this->createNotFoundException('No event with that ID');
-        }
-
-        return $event;
+        return $this->redirectToRoute('schedule_event_show', ['id' => $event->getId()]);
     }
 }
