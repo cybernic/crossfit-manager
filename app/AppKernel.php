@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new \FOS\UserBundle\FOSUserBundle(),
             new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
 
             // Custom Bundles
             new AppBundle\AppBundle(),

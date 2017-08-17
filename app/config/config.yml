@@ -142,6 +142,6 @@ easy_admin:
             form:
                 fields:
                     - title
-                    - text
+                    - {property: 'text', type: 'ckeditor'}
                     - {property: 'created_at', type: 'datetime', type_options: { required: true }}
                     - user
