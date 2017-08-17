@@ -110,3 +110,38 @@ avanzu_admin_theme:
     #    enable         : true
     #    main_menu      : avanzu_main  # the menu builder alias to use for the main menu
     #    breadcrumb_menu: false        # the menu builder alias to use for the breacrumbs
+
+easy_admin:
+    entities:
+#        - ScheduleBundle\Entity\Event
+#        - ScheduleBundle\Entity\Notification
+#        - ScheduleBundle\Entity\Program
+#        - ScheduleBundle\Entity\Reservation
+#        - AppBundle\Entity\User
+        User:
+            class: AppBundle\Entity\User
+            form:
+                fields:
+                    - name
+                    - surname
+                    - email
+                    - enabled
+                    # if administrators are allowed to edit users' passwords and roles, add this:
+                    - { property: 'plainPassword', type: 'text', type_options: { required: true } }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+            edit:
+                fields:
+                    - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+                form_options: { validation_groups: ['Profile'] }
+            new:
+                fields:
+                    - { property: 'plainPassword', type: 'text', type_options: { required: true } }
+                form_options: { validation_groups: ['Registration'] }
+        Notification:
+            class: ScheduleBundle\Entity\Notification
+            form:
+                fields:
+                    - title
+                    - text
+                    - {property: 'created_at', type: 'datetime', type_options: { required: true }}
+                    - user

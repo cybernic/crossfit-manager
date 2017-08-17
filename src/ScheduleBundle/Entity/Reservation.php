@@ -51,6 +51,11 @@ class Reservation
         $this->createdAt = new \DateTime();
     }
 
+    public function __toString()
+    {
+        return $this->getCreatedAt()->format('Y-m-d H:i:s');
+    }
+
     /**
      * @return mixed
      */

@@ -67,6 +67,11 @@ class Event
         $this->reservations = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->getProgram()->getTitle();
+    }
+
     /**
      * @return integer
      */

@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new \Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
             new \FOS\UserBundle\FOSUserBundle(),
             new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
 
             // Custom Bundles
             new AppBundle\AppBundle(),

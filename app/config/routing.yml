@@ -39,3 +39,8 @@ avanzu_admin_home:
     defaults: {_controller: AvanzuAdminThemeBundle:Default:index}
     options:
         avanzu_admin_route: welcome
+
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin
