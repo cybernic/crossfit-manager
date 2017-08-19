@@ -116,6 +116,8 @@ easy_admin:
     site_name: 'Tutanza Crossfit'
     design:
         brand_color: '#017d45'
+    list:
+        title: '%%entity_label%%'
     entities:
 #        - ScheduleBundle\Entity\Event
 #        - ScheduleBundle\Entity\Notification
@@ -124,6 +126,7 @@ easy_admin:
 #        - AppBundle\Entity\User
         User:
             class: AppBundle\Entity\User
+            label: Usuarios
             disabled_actions: ['delete']
             list:
                 fields:
@@ -151,6 +154,7 @@ easy_admin:
                 form_options: { validation_groups: ['Registration'] }
         Notification:
             class: ScheduleBundle\Entity\Notification
+            label: Noticias
             form:
                 fields:
                     - title
