@@ -61,8 +61,12 @@
                         <ul class="users-list clearfix">
                             {% for reservation in event.reservations %}
                                 <li>
-                                    <img src="/bundles/avanzuadmintheme/img/avatar.png" width="64">
-                                    <span class="users-list-name">{{ reservation.user.username }}</span>
+                                    {% if vich_uploader_asset(reservation.user, 'imageFile') == "" %}
+                                        <img src="/bundles/avanzuadmintheme/img/avatar.png" width="64">
+                                    {% else %}
+                                        <img src="{{ asset(vich_uploader_asset(reservation.user, 'imageFile')) | imagine_filter('avatar_128x128') }}" alt="{{ reservation.user.shortName() }}" width="64">
+                                    {% endif %}
+                                    <span class="users-list-name">{{ reservation.user.shortName() }}</span>
                                     <span class="users-list-date">{{ reservation.createdAt|date('Y-m-d') }}</span>
                                 </li>
                             {% endfor %}

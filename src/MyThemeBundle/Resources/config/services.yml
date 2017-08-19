@@ -16,6 +16,7 @@ parameters:
 services:
     my_theme_bundle.menu_listener:
         class: "%my_theme_bundle.menu_listener.class%"
+        arguments: ["@security.token_storage"]
         tags:
             - { name: kernel.event_listener, event: theme.sidebar_setup_menu, method: onSetupMenu }
     #my_theme_bundle.breadcrumb_listener:

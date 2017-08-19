@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use \Symfony\Component\Form\AbstractType;
 use \Symfony\Component\Form\FormBuilderInterface;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProfileFormType extends AbstractType
 {
@@ -12,6 +13,12 @@ class ProfileFormType extends AbstractType
         $builder
             ->add('name', null, ['trim' => true])
             ->add('surname', null, ['trim' => true])
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,
+                'imagine_pattern' => 'avatar_128x128',
+                'allow_delete' => false,
+                'download_link' => false,
+            ])
             ->remove('username')
         ;
     }

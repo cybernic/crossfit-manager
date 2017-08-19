@@ -6,10 +6,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use ScheduleBundle\Entity\Event;
 use ScheduleBundle\Entity\Reservation;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  * @ORM\Table(name="`fos_user`")
+ * @Vich\Uploadable()
  */
 class User extends \FOS\UserBundle\Model\User implements \Avanzu\AdminThemeBundle\Model\UserInterface
 {
@@ -34,9 +37,25 @@ class User extends \FOS\UserBundle\Model\User implements \Avanzu\AdminThemeBundl
     private $surname = null;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
+    /**
+     * @Vich\UploadableField(mapping="user_avatar", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
 
     /**
      * One User has Many Reservations.
@@ -50,6 +69,11 @@ class User extends \FOS\UserBundle\Model\User implements \Avanzu\AdminThemeBundl
 
         $this->createdAt = new \DateTime();
         $this->reservations = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->getShortName();
     }
 
     public function getAvatar()
@@ -87,6 +111,30 @@ class User extends \FOS\UserBundle\Model\User implements \Avanzu\AdminThemeBundl
     public function setSurname($surname)
     {
         $this->surname = $surname;
+    }
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        if ($image) {
+            $this->updatedAt = new \DateTime();
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
     }
 
     public function getMemberSince()
@@ -144,6 +192,21 @@ class User extends \FOS\UserBundle\Model\User implements \Avanzu\AdminThemeBundl
         $this->createdAt = $createdAt;
     }
 
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
 
     /**
      * @return ArrayCollection|Reservation[]

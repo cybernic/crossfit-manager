@@ -5,7 +5,10 @@ MAINTAINER Maxence POUTORD <maxence.poutord@gmail.com>
 
 RUN apt-get update && apt-get install -y \
     git \
+# for php-zip
     zlib1g-dev \
+# for php-gd
+    libpng-dev \
     unzip
 
 # Install Composer
@@ -18,7 +21,7 @@ RUN ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
 RUN "date"
 
 # Type docker-php-ext-install to see available extensions
-RUN docker-php-ext-install pdo pdo_mysql zip
+RUN docker-php-ext-install pdo pdo_mysql zip gd
 
 
 # install xdebug

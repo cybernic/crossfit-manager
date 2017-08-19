@@ -17,11 +17,16 @@
 
                 {{ form_row(form.current_password) }}
 
+                {{ form_row(form.imageFile) }}
+
                 <div>
                     <input type="submit" class="btn btn-success" value="{{ 'profile.edit.submit'|trans }}" />
                 </div>
                 {{ form_end(form) }}
             </div>
+            <style>
+                .vich-image > a > img {max-width: 128px;margin-top: 5px;}
+            </style>
         </div>
     </div>
 </div>

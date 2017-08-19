@@ -10,6 +10,7 @@ imports:
 parameters:
     locale: es
     cache_type: file_system
+    app.path.user_avatar: /media/avatars
 
 framework:
     #esi: ~
@@ -120,15 +121,23 @@ easy_admin:
 #        - AppBundle\Entity\User
         User:
             class: AppBundle\Entity\User
+            disabled_actions: ['delete']
+            list:
+                fields:
+                    - name
+                    - surname
+                    - email
+                    - enabled
+                    - { property: 'created_at', type: 'datetime' }
             form:
                 fields:
                     - name
                     - surname
                     - email
                     - enabled
-                    # if administrators are allowed to edit users' passwords and roles, add this:
                     - { property: 'plainPassword', type: 'text', type_options: { required: true } }
-                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'Usuario': 'ROLE_USER', 'Administrador': 'ROLE_ADMIN' } } }
+                    - { property: 'imageFile', type: 'vich_image', type_options: { required: false, imagine_pattern: 'avatar_128x128' } }
             edit:
                 fields:
                     - { property: 'plainPassword', type: 'text', type_options: { required: false } }
@@ -142,6 +151,36 @@ easy_admin:
             form:
                 fields:
                     - title
-                    - {property: 'text', type: 'ckeditor'}
-                    - {property: 'created_at', type: 'datetime', type_options: { required: true }}
+                    - { property: 'text', type: 'ckeditor' }
+                    - { property: 'created_at', type: 'datetime', type_options: { required: true } }
                     - user
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        user_avatar:
+            uri_prefix:         '%app.path.user_avatar%'
+            upload_destination: '%kernel.root_dir%/../web%app.path.user_avatar%'
+            namer:              vich_uploader.namer_uniqid
+            directory_namer:
+                service: vich_uploader.directory_namer_subdir
+                options: {chars_per_dir: 1, dirs: 2}
+
+liip_imagine:
+    resolvers:
+         avatar_resolver:
+              web_path:
+                  web_root: "%kernel.root_dir%/../web"
+                  cache_prefix: "/media/cache"
+    cache: avatar_resolver
+    filter_sets:
+        avatar_480x480:
+            cache: avatar_resolver
+            quality: 75
+            filters:
+                thumbnail: { size : [480, 480], mode : outbound }
+        avatar_128x128:
+            cache: avatar_resolver
+            quality: 75
+            filters:
+                thumbnail: { size : [128, 128], mode : outbound }
