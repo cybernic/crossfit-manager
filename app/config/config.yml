@@ -113,6 +113,9 @@ avanzu_admin_theme:
     #    breadcrumb_menu: false        # the menu builder alias to use for the breacrumbs
 
 easy_admin:
+    site_name: 'Tutanza Crossfit'
+    design:
+        brand_color: '#017d45'
     entities:
 #        - ScheduleBundle\Entity\Event
 #        - ScheduleBundle\Entity\Notification
