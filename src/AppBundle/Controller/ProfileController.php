@@ -29,7 +29,7 @@ class ProfileController extends \FOS\UserBundle\Controller\ProfileController
 
         return $this->render('@FOSUser/Profile/show.html.twig', array(
             'user' => $user,
-            'notifications' => [],
+            'notifications' => $notifications,
         ));
     }
 }
