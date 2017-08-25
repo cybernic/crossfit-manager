@@ -23,6 +23,11 @@ RUN "date"
 # Type docker-php-ext-install to see available extensions
 RUN docker-php-ext-install pdo pdo_mysql zip gd
 
+# Install PHPUnit
+RUN curl -OL https://phar.phpunit.de/phpunit.phar \
+	&& chmod 755 phpunit.phar \
+	&& mv phpunit.phar /usr/local/bin/ \
+	&& ln -s /usr/local/bin/phpunit.phar /usr/local/bin/phpunit
 
 # install xdebug
 RUN pecl install xdebug

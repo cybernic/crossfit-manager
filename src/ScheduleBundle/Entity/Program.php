@@ -34,7 +34,7 @@ class Program
     /**
      * @ORM\Column(type="string", nullable=true, length=7, options={"fixed" = true})
      */
-    private $color = '#fff';
+    private $color = '#ffffff';
 
     /**
      * @Assert\NotBlank()

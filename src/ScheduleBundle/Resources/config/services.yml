@@ -2,3 +2,7 @@ services:
 #    schedule.example:
 #        class: ScheduleBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+    event_voter:
+        class: ScheduleBundle\Security\EventVoter
+        tags:
+            - { name: security.voter }

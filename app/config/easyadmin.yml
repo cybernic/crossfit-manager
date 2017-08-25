@@ -1,0 +1,84 @@
+easy_admin:
+    site_name: '<img src="/img/logo-horizontal-256.png" width="128" height="45" style="max-height:45px;">'
+    design:
+        brand_color: '#017d45'
+        menu:
+            - { label: 'ADMINISTRAR' }
+            - { entity: 'User', icon: 'users' }
+            - { entity: 'Notification', icon: 'newspaper-o' }
+            - { entity: 'Program', icon: 'calendar' }
+            - { label: 'Volver a la web', route: 'fos_user_profile_show', icon: 'sign-out' }
+            # - { label: 'Programas', route: 'schedule_program_index', icon: 'calendar' }
+    formats:
+        date: 'd/m/Y'
+        time: 'H:i:s'
+        datetime: 'd/m/Y H:i'
+    list:
+        title: '%%entity_label%%'
+    entities:
+#        - ScheduleBundle\Entity\Event
+#        - ScheduleBundle\Entity\Notification
+#        - ScheduleBundle\Entity\Program
+#        - ScheduleBundle\Entity\Reservation
+#        - AppBundle\Entity\User
+        User:
+            class: AppBundle\Entity\User
+            label: Usuarios
+            disabled_actions: ['delete']
+            list:
+                fields:
+                    - name
+                    - surname
+                    - email
+                    - enabled
+                    - { property: 'created_at', type: 'datetime' }
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-md-8', label: 'Usuario', icon: 'pencil'}
+                    - name
+                    - surname
+                    - email
+                    - enabled
+                    - { property: 'plainPassword', type: 'text', type_options: { required: true } }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'Usuario': 'ROLE_USER', 'Administrador': 'ROLE_ADMIN' } } }
+                    - { property: 'imageFile', type: 'vich_image', type_options: { required: false, imagine_pattern: 'avatar_128x128' } }
+            edit:
+                fields:
+                    - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+                form_options: { validation_groups: ['Profile'] }
+            new:
+                fields:
+                    - { property: 'plainPassword', type: 'text', type_options: { required: true } }
+                form_options: { validation_groups: ['Registration'] }
+        Notification:
+            class: ScheduleBundle\Entity\Notification
+            label: Noticias
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-md-9', label: 'Noticia', icon: 'pencil'}
+                    - title
+                    - { property: 'text', type: 'ckeditor' }
+                    - { property: 'created_at', type: 'datetime', type_options: { required: true } }
+                    - user
+        Program:
+            class: ScheduleBundle\Entity\Program
+            label: Programas
+            disabled_actions: ['delete']
+            list:
+                fields:
+                    - title
+                    - description
+                    - color
+                    - isActive
+                    - places
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-md-8', label: 'Programa', icon: 'pencil'}
+                    - title
+                    - description
+                    - { property: 'color', type: 'AppBundle\Form\Type\ColorType', type_options: { required: false } }
+                    - places
+            edit:
+                fields:
+                    - isActive
+
