@@ -4,15 +4,15 @@
 parameters:
     database_host: 127.0.0.1
     database_port: ~
-    database_name: tutanzacrossfit
-    database_user: tutanza_symfony
-    database_password: r68DZYTN0udYRKDp
+    database_name: db_crossfitbox
+    database_user: usr_crossfit
+    database_password: 1234
     # You should uncomment this if you want to use pdo_sqlite
     #database_path: '%kernel.project_dir%/var/data/data.sqlite'
 
     mailer_transport: smtp
     mailer_host: 127.0.0.1
-    mailer_user: n1colai@hotmail.es
+    mailer_user: info@example.com
     mailer_password: ~
 
     # A secret key that's used to generate certain security-related tokens
