@@ -1,7 +1,7 @@
 Crossfit Manager
 ================
 
-Crossfit Manager is a symfony project to control users in your Crossfit Box
+Crossfit Manager is a symfony project to control reservations of users in your Crossfit Box
 
 
 ## Quick start guide
