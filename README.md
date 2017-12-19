@@ -1,7 +1,7 @@
 Crossfit Manager
 ================
 
-Crossfit Manager is a symfony project to control users of your Crossfit Box
+Crossfit Manager is a symfony project to control users in your Crossfit Box
 
 
 ## Quick start guide
@@ -13,9 +13,17 @@ Crossfit Manager is a symfony project to control users of your Crossfit Box
     ```
 
 
-2. Build/run containers and init DB
+2. Create a `.env` from the `.env.dist` file.
 
     ```bash
+    cp .env.dist .env
+    ```
+
+
+3. Build/run containers and init DB
+
+    ```bash
+    $ cd docker
     $ docker-compose up -d
     $ docker-compose exec php composer update
 
@@ -25,7 +33,7 @@ Crossfit Manager is a symfony project to control users of your Crossfit Box
     ```
 
 
-3. Update your /etc/hosts file and add `symfony.dev`
+4. Update your /etc/hosts file and add `symfony.dev`
 
 
-4. Visit `symfony.dev` in your browser
+5. Visit `symfony.dev` in your browser
