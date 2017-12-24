@@ -33,6 +33,7 @@
         "javiereguiluz/easyadmin-bundle": "^1.16",
         "liip/imagine-bundle": "^1.8",
         "nelmio/alice": "^2.3",
+        "roave/security-advisories": "dev-master",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
         "symfony/monolog-bundle": "^3.1.0",
@@ -45,7 +46,8 @@
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^2.3",
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0"
+        "symfony/phpunit-bridge": "^3.0",
+        "vimeo/psalm": "^0"
     },
     "scripts": {
         "symfony-scripts": [
