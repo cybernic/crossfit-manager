@@ -75,7 +75,7 @@ easy_admin:
                 fields:
                     - { type: 'group', css_class: 'col-md-8', label: 'Programa', icon: 'pencil'}
                     - title
-                    - description
+                    - { property: 'description', type: 'ckeditor' }
                     - { property: 'color', type: 'AppBundle\Form\Type\ColorType', type_options: { required: false } }
                     - places
             edit:
