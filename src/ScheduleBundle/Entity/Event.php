@@ -167,4 +167,10 @@ class Event
     {
         return $this->reservations;
     }
+
+
+    public function canBeCanceled()
+    {
+        return ($this->getStartsAt()->format('U') - time() - 3600) > 0;
+    }
 }

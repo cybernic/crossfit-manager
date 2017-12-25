@@ -108,7 +108,7 @@ class EventController extends Controller
         /** @var User $user */
         $user = $this->getUser();
 
-        if ($user->hasReservation($event)) {
+        if ($event->canReserve() && $user->hasReservation($event)) {
             $reservation = $user->getReservationByEvent($event);
 
             $em = $this->getDoctrine()->getManager();
