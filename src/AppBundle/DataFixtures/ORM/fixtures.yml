@@ -1,3 +1,7 @@
+ScheduleBundle\Entity\Subscription:
+    subscription_{0..7}:
+        weeklyTrainings: <current()>
+
 AppBundle\Entity\User:
     user_{1..20}:
         username: <username()>
@@ -7,6 +11,8 @@ AppBundle\Entity\User:
         password: <password()>
         enabled: 1
         createdAt: <dateTimeBetween('-180 days', 'now')>
+        paidUntil: <dateTimeBetween('now', '+360 days')>
+        subscription: '@subscription_*'
 
 ScheduleBundle\Entity\Program:
     program_{1..20}:

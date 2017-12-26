@@ -6,8 +6,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use ScheduleBundle\Entity\Event;
 use ScheduleBundle\Entity\Reservation;
+use ScheduleBundle\Entity\Subscription;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
@@ -37,7 +39,7 @@ class User extends \FOS\UserBundle\Model\User implements \Avanzu\AdminThemeBundl
     private $surname = null;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
 
@@ -62,6 +64,18 @@ class User extends \FOS\UserBundle\Model\User implements \Avanzu\AdminThemeBundl
      * @ORM\OneToMany(targetEntity="ScheduleBundle\Entity\Reservation", mappedBy="user")
      */
     private $reservations;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $paidUntil;
+
+    /**
+     * @Assert\NotBlank()
+     * @ORM\ManyToOne(targetEntity="ScheduleBundle\Entity\Subscription")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $subscription;
 
     public function __construct()
     {
@@ -244,5 +258,37 @@ class User extends \FOS\UserBundle\Model\User implements \Avanzu\AdminThemeBundl
         }
 
         return false;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPaidUntil()
+    {
+        return $this->paidUntil;
+    }
+
+    /**
+     * @param \DateTime $paidUntil
+     */
+    public function setPaidUntil($paidUntil)
+    {
+        $this->paidUntil = $paidUntil;
+    }
+
+    /**
+     * @return Subscription
+     */
+    public function getSubscription()
+    {
+        return $this->subscription;
+    }
+
+    /**
+     * @param Subscription $subscription
+     */
+    public function setSubscription($subscription)
+    {
+        $this->subscription = $subscription;
     }
 }

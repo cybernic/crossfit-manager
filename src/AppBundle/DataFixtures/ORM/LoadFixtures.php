@@ -11,6 +11,10 @@ class LoadFixtures implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
+        Fixtures::load(__DIR__ . '/fixtures.yml', $manager, [
+            'providers' => [$this]
+        ]);
+
         $userAdmin = new User();
         $userAdmin->setUsername('admin');
         $userAdmin->setPlainPassword('1234');
@@ -20,12 +24,12 @@ class LoadFixtures implements FixtureInterface
         $userAdmin->setEnabled(true);
         $userAdmin->addRole('ROLE_ADMIN');
 
+        $userAdmin->setSubscription(
+            $manager->getRepository('ScheduleBundle:Subscription')->getByWeeklyTrainings(7)
+        );
+
         $manager->persist($userAdmin);
         $manager->flush();
-
-        Fixtures::load(__DIR__ . '/fixtures.yml', $manager, [
-            'providers' => [$this]
-        ]);
     }
 
     public function eventDuration()
