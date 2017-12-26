@@ -32,7 +32,7 @@ class DefaultController extends Controller
         /** @var Event $event */
         foreach ($events as $event) {
             $program = $event->getProgram();
-            $progressPercent = (int)(count($event->getReservations()) / $program->getPlaces() * 100);
+            $progressPercent = $event->reservedPlacesPercent();
             $progress = '<div class="progress progress-xxs" style="margin:2px 0 0;">
                 <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="'.$progressPercent.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$progressPercent.'%">
                   <span class="sr-only">'.$progressPercent.'%</span>

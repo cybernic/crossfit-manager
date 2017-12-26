@@ -168,9 +168,19 @@ class Event
         return $this->reservations;
     }
 
-
+    /**
+     * @return bool
+     */
     public function canBeCanceled()
     {
         return ($this->getStartsAt()->format('U') - time() - 3600) > 0;
+    }
+
+    /**
+     * @return int
+     */
+    public function reservedPlacesPercent()
+    {
+        return (int)(count($this->getReservations()) / $this->getProgram()->getPlaces() * 100);
     }
 }

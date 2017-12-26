@@ -14,7 +14,7 @@
                     <span class="info-box-number">{{ event.reservations|length }} de {{ event.program.places }}</span>
 
                     <div class="progress">
-                        <div class="progress-bar" style="width: 70%"></div>
+                        <div class="progress-bar" style="width: {{ event.reservedPlacesPercent }}%"></div>
                     </div>
                     <span class="progress-description __web-inspector-hide-shortcut__">
                         {% if hasReservation %}
