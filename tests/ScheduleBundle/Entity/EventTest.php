@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 
 class EventTest extends TestCase
 {
-    public function testCanReserve()
+    public function testCanBeReserved()
     {
         $event = new Event();
 
