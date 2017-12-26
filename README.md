@@ -33,7 +33,7 @@ Crossfit Manager is a symfony project to control reservations of users in your C
     ```
 
 
-4. Update your /etc/hosts file and add `symfony.dev`
+4. Update your /etc/hosts file and add `crossfit.test`
 
 
-5. Visit `symfony.dev` in your browser
+5. Visit `crossfit.test` in your browser

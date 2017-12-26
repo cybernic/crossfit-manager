@@ -16,7 +16,7 @@
                 - "8080:80"
     ```
 
-2. Visit: [symfony.dev:8080](http://symfony.dev:8080)
+2. Visit: [crossfit.test:8080](http://crossfit.test:8080)
 
 ## Add Redis
 
