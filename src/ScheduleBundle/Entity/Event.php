@@ -181,6 +181,10 @@ class Event
      */
     public function reservedPlacesPercent()
     {
+        if (count($this->getReservations()) >= $this->getProgram()->getPlaces()) {
+            return 100;
+        }
+
         return (int)(count($this->getReservations()) / $this->getProgram()->getPlaces() * 100);
     }
 }
