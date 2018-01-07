@@ -23,6 +23,7 @@ class SubscriptionRepository extends EntityRepository
     /**
      * @param int $trainings
      * @return Subscription
+     * @throws \Doctrine\ORM\NoResultException
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function getByWeeklyTrainings($trainings)
