@@ -12,16 +12,10 @@ class UserRepository extends EntityRepository
      */
     public function findAllActive()
     {
-        return $this->createTrainerOnlyQueryBuilder()
+        return $this->createQueryBuilder('user')
+            ->andWhere('user.enabled = 1')
             ->orderBy('user.username', 'ASC')
             ->getQuery()
             ->execute();
-    }
-
-    public function createTrainerOnlyQueryBuilder()
-    {
-        return $this->createQueryBuilder('user')
-            ->andWhere('user.username = :username')
-            ->setParameter('username', 'admin');
     }
 }
