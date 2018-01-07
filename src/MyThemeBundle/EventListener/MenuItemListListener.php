@@ -36,7 +36,6 @@ class MenuItemListListener {
             new MenuItemModel('right-menu-easyadmin-users', 'Usuarios', 'easyadmin', ['entity' => 'User', 'action' => 'list', 'menuIndex' => 0], 'fa fa-users'),
             new MenuItemModel('right-menu-easyadmin-news', 'Noticias', 'easyadmin', ['entity' => 'Notification', 'action' => 'list', 'menuIndex' => 1], 'fa fa-newspaper-o'),
             new MenuItemModel('right-menu-easyadmin-program', 'Programas', 'easyadmin', ['entity' => 'Program', 'action' => 'list', 'menuIndex' => 1], 'fa fa-calendar'),
-            //$programMenu = new MenuItemModel('right-menu-program', 'Programas', 'schedule_program_index', [], 'fa fa-calendar'),
         ];
 
         if (!$this->tokenStorage->getToken()->getUser()->hasRole('ROLE_ADMIN')) {
