@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6735145727192d0c1d48e3e1218d51f3",
+    "content-hash": "dd03e6807779c7bda828ad050f8473bf",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
-            "version": "v2.4.2",
+            "version": "v2.3.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/almasaeed2010/AdminLTE.git",
-                "reference": "156f56c3c183a3b8486c47b122c7fa8819510a90"
+                "reference": "2be703222af2edcb87e562d3da2299e4352bff8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/156f56c3c183a3b8486c47b122c7fa8819510a90",
-                "reference": "156f56c3c183a3b8486c47b122c7fa8819510a90",
+                "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/2be703222af2edcb87e562d3da2299e4352bff8a",
+                "reference": "2be703222af2edcb87e562d3da2299e4352bff8a",
                 "shasum": ""
             },
             "type": "library",
@@ -32,7 +32,7 @@
                 }
             ],
             "description": "AdminLTE - admin control panel and dashboard that's based on Bootstrap 3",
-            "homepage": "https://adminlte.io/",
+            "homepage": "http://almsaeedstudio.com/",
             "keywords": [
                 "JS",
                 "admin",
@@ -44,28 +44,31 @@
                 "theme",
                 "web"
             ],
-            "time": "2017-10-09T16:32:18+00:00"
+            "time": "2017-01-08T21:03:57+00:00"
         },
         {
             "name": "avanzu/admin-theme-bundle",
-            "version": "2.0.0-beta.5",
+            "version": "2.0.0-beta.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/avanzu/AdminThemeBundle.git",
-                "reference": "96f9341622fbbba60287f20803ebf916a56b397d"
+                "reference": "6f9870108600e40eefe7c971c0c5b6fe83c74600"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/avanzu/AdminThemeBundle/zipball/96f9341622fbbba60287f20803ebf916a56b397d",
-                "reference": "96f9341622fbbba60287f20803ebf916a56b397d",
+                "url": "https://api.github.com/repos/avanzu/AdminThemeBundle/zipball/6f9870108600e40eefe7c971c0c5b6fe83c74600",
+                "reference": "6f9870108600e40eefe7c971c0c5b6fe83c74600",
                 "shasum": ""
             },
             "require": {
-                "almasaeed2010/adminlte": "^2.3",
+                "almasaeed2010/adminlte": "~2.3.0",
                 "php": ">=5.5.9",
+                "symfony/console": ">=2.3",
                 "symfony/event-dispatcher": ">=2.3",
                 "symfony/http-foundation": ">=2.3",
-                "symfony/http-kernel": ">=2.3"
+                "symfony/http-kernel": ">=2.3",
+                "symfony/options-resolver": ">=2.3",
+                "symfony/process": ">=2.3"
             },
             "require-dev": {
                 "phpspec/prophecy": "^1.6"
@@ -73,7 +76,7 @@
             "suggest": {
                 "knplabs/knp-menu-bundle": "Allows easy menu integration."
             },
-            "type": "library",
+            "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
                     "Avanzu\\AdminThemeBundle\\": ""
@@ -86,11 +89,19 @@
             "authors": [
                 {
                     "name": "Marc Bach",
-                    "email": "mail@avanzu.de"
+                    "email": "mail@avanzu.de",
+                    "homepage": "http://www.avanzu.de",
+                    "role": "Original Author"
+                },
+                {
+                    "name": "Ángel Guzmán Maeso",
+                    "email": "shakaran@gmail.com",
+                    "homepage": "https://shakaran.net/blog",
+                    "role": "Developer Collaborator"
                 }
             ],
             "description": "Admin Theme based on the AdminLTE Template for easy integration into symfony",
-            "time": "2016-07-23T07:54:15+00:00"
+            "time": "2017-11-14T18:45:43+00:00"
         },
         {
             "name": "behat/transliterator",
@@ -1514,16 +1525,16 @@
         },
         {
             "name": "javiereguiluz/easyadmin-bundle",
-            "version": "v1.17.7",
+            "version": "v1.17.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/javiereguiluz/EasyAdminBundle.git",
-                "reference": "50338b291d596c047f4eb53c22b4054509f0f5a1"
+                "reference": "2060f916eb4ca1365edc51c3b682263783737220"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/50338b291d596c047f4eb53c22b4054509f0f5a1",
-                "reference": "50338b291d596c047f4eb53c22b4054509f0f5a1",
+                "url": "https://api.github.com/repos/javiereguiluz/EasyAdminBundle/zipball/2060f916eb4ca1365edc51c3b682263783737220",
+                "reference": "2060f916eb4ca1365edc51c3b682263783737220",
                 "shasum": ""
             },
             "require": {
@@ -1568,7 +1579,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.16.x-dev"
+                    "dev-master": "1.17.x-dev"
                 }
             },
             "autoload": {
@@ -1598,7 +1609,7 @@
                 "backend",
                 "generator"
             ],
-            "time": "2017-11-28T14:02:33+00:00"
+            "time": "2018-01-15T09:15:38+00:00"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -1881,65 +1892,6 @@
             "time": "2017-06-19T01:22:40+00:00"
         },
         {
-            "name": "muglug/package-versions",
-            "version": "1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/muglug/PackageVersions.git",
-                "reference": "d899b8c0178104b51522d4c8e813b66f6f7ae2cd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/muglug/PackageVersions/zipball/d899b8c0178104b51522d4c8e813b66f6f7ae2cd",
-                "reference": "d899b8c0178104b51522d4c8e813b66f6f7ae2cd",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0",
-                "php": "^5.6 || ^7.0"
-            },
-            "replace": {
-                "ocramius/package-versions": ">=1.0.0"
-            },
-            "require-dev": {
-                "composer/composer": "^1.3",
-                "ext-zip": "*",
-                "phpunit/phpunit": "^5.7.5"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "PackageVersions\\Installer",
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PackageVersions\\": "src/PackageVersions"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com"
-                },
-                {
-                    "name": "Abdul Malik Ikhsan",
-                    "email": "samsonasik@gmail.com"
-                },
-                {
-                    "name": "Matt Brown",
-                    "email": "github@muglug.com"
-                }
-            ],
-            "description": "A backport of ocramius/package-versions that supports php ^5.6. Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
-            "time": "2017-11-14T02:58:18+00:00"
-        },
-        {
             "name": "nelmio/alice",
             "version": "v2.3.4",
             "source": {
@@ -1997,6 +1949,55 @@
                 "test"
             ],
             "time": "2017-10-31T11:42:39+00:00"
+        },
+        {
+            "name": "ocramius/package-versions",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Ocramius/PackageVersions.git",
+                "reference": "ad8a245decad4897cc6b432743913dad0d69753c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/ad8a245decad4897cc6b432743913dad0d69753c",
+                "reference": "ad8a245decad4897cc6b432743913dad0d69753c",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "php": "~7.0"
+            },
+            "require-dev": {
+                "composer/composer": "^1.3",
+                "ext-zip": "*",
+                "humbug/humbug": "dev-master",
+                "phpunit/phpunit": "^6.4"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "PackageVersions\\Installer",
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PackageVersions\\": "src/PackageVersions"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
+                }
+            ],
+            "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
+            "time": "2017-11-24T11:07:03+00:00"
         },
         {
             "name": "ocramius/proxy-manager",
@@ -2425,12 +2426,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "0703d860f83775029738dc4a519301e8e3d81853"
+                "reference": "402a514551804df5b4b2150f217e23a15408795a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/0703d860f83775029738dc4a519301e8e3d81853",
-                "reference": "0703d860f83775029738dc4a519301e8e3d81853",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/402a514551804df5b4b2150f217e23a15408795a",
+                "reference": "402a514551804df5b4b2150f217e23a15408795a",
                 "shasum": ""
             },
             "conflict": {
@@ -2444,9 +2445,10 @@
                 "codeigniter/framework": "<=3.0.6",
                 "composer/composer": "<=1.0.0-alpha11",
                 "contao-components/mediaelement": ">=2.14.2,<2.21.1",
-                "contao/core": ">=2,<3.5.31",
+                "contao/core": ">=2,<3.5.32",
                 "contao/core-bundle": ">=4,<4.4.8",
                 "contao/listing-bundle": ">=4,<4.4.8",
+                "contao/newsletter-bundle": ">=4,<4.1",
                 "doctrine/annotations": ">=1,<1.2.7",
                 "doctrine/cache": ">=1,<1.3.2|>=1.4,<1.4.2",
                 "doctrine/common": ">=2,<2.4.3|>=2.5,<2.5.1",
@@ -2481,7 +2483,7 @@
                 "oro/platform": ">=1.7,<1.7.4",
                 "phpmailer/phpmailer": ">=5,<5.2.24",
                 "phpunit/phpunit": ">=4.8.19,<4.8.28|>=5.0.10,<5.6.3",
-                "phpxmlrpc/extras": "<6.0.1",
+                "phpxmlrpc/extras": "<0.6.1",
                 "pusher/pusher-php-server": "<2.2.1",
                 "sabre/dav": ">=1.6,<1.6.99|>=1.7,<1.7.11|>=1.8,<1.8.9",
                 "shopware/shopware": "<5.2.25",
@@ -2513,7 +2515,7 @@
                 "symfony/web-profiler-bundle": ">=2,<2.3.19|>=2.4,<2.4.9|>=2.5,<2.5.4",
                 "symfony/yaml": ">=2,<2.0.22|>=2.1,<2.1.7",
                 "thelia/backoffice-default-template": ">=2.1,<2.1.2",
-                "thelia/thelia": ">=2.1.0-beta1,<2.1.3|>=2.1,<2.1.2",
+                "thelia/thelia": ">=2.1,<2.1.2|>=2.1.0-beta1,<2.1.3",
                 "twig/twig": "<1.20",
                 "typo3/cms": ">=6.2,<6.2.30|>=7,<7.6.22|>=8,<8.7.5",
                 "typo3/flow": ">=1,<1.0.4|>=1.1,<1.1.1|>=2,<2.0.1|>=2.3,<2.3.16|>=3,<3.0.10|>=3.1,<3.1.7|>=3.2,<3.2.7|>=3.3,<3.3.5",
@@ -2562,7 +2564,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2017-12-24T19:52:27+00:00"
+            "time": "2018-01-18T10:00:53+00:00"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -2688,16 +2690,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v4.1.6",
+            "version": "v4.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "387b6a3b723ba35588b33d5f8d14e28ed608bd30"
+                "reference": "d539ccba2b4dce515de04f16b7ed7ae5b9eeb434"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/387b6a3b723ba35588b33d5f8d14e28ed608bd30",
-                "reference": "387b6a3b723ba35588b33d5f8d14e28ed608bd30",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/d539ccba2b4dce515de04f16b7ed7ae5b9eeb434",
+                "reference": "d539ccba2b4dce515de04f16b7ed7ae5b9eeb434",
                 "shasum": ""
             },
             "require": {
@@ -2729,7 +2731,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2017-10-29T18:48:08+00:00"
+            "time": "2018-01-11T05:54:03+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3249,16 +3251,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.3.14",
+            "version": "v3.3.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "8e2b473de636a65a018b370d5e88778a260f0e33"
+                "reference": "6e2feb700fc20f6ced75d3e8c273b0ecd3dba835"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/8e2b473de636a65a018b370d5e88778a260f0e33",
-                "reference": "8e2b473de636a65a018b370d5e88778a260f0e33",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/6e2feb700fc20f6ced75d3e8c273b0ecd3dba835",
+                "reference": "6e2feb700fc20f6ced75d3e8c273b0ecd3dba835",
                 "shasum": ""
             },
             "require": {
@@ -3399,7 +3401,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-12-04T22:26:41+00:00"
+            "time": "2018-01-05T07:28:58+00:00"
         },
         {
             "name": "twig/extensions",
@@ -3721,35 +3723,35 @@
     "packages-dev": [
         {
             "name": "composer/composer",
-            "version": "1.5.6",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "4f7f9c12753ec43f1e4629e2a71cabe81f2a4eab"
+                "reference": "db191abd24b0be110c98ba2271ca992e1c70962f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/4f7f9c12753ec43f1e4629e2a71cabe81f2a4eab",
-                "reference": "4f7f9c12753ec43f1e4629e2a71cabe81f2a4eab",
+                "url": "https://api.github.com/repos/composer/composer/zipball/db191abd24b0be110c98ba2271ca992e1c70962f",
+                "reference": "db191abd24b0be110c98ba2271ca992e1c70962f",
                 "shasum": ""
             },
             "require": {
                 "composer/ca-bundle": "^1.0",
                 "composer/semver": "^1.0",
-                "composer/spdx-licenses": "^1.0",
+                "composer/spdx-licenses": "^1.2",
                 "justinrainbow/json-schema": "^3.0 || ^4.0 || ^5.0",
                 "php": "^5.3.2 || ^7.0",
                 "psr/log": "^1.0",
                 "seld/cli-prompt": "^1.0",
                 "seld/jsonlint": "^1.4",
                 "seld/phar-utils": "^1.0",
-                "symfony/console": "^2.7 || ^3.0",
-                "symfony/filesystem": "^2.7 || ^3.0",
-                "symfony/finder": "^2.7 || ^3.0",
-                "symfony/process": "^2.7 || ^3.0"
+                "symfony/console": "^2.7 || ^3.0 || ^4.0",
+                "symfony/filesystem": "^2.7 || ^3.0 || ^4.0",
+                "symfony/finder": "^2.7 || ^3.0 || ^4.0",
+                "symfony/process": "^2.7 || ^3.0 || ^4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5 || ^5.0.5",
+                "phpunit/phpunit": "^4.8.35 || ^5.7",
                 "phpunit/phpunit-mock-objects": "^2.3 || ^3.0"
             },
             "suggest": {
@@ -3763,7 +3765,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -3794,7 +3796,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2017-12-18T11:09:18+00:00"
+            "time": "2018-01-05T14:28:42+00:00"
         },
         {
             "name": "composer/semver",
@@ -3860,23 +3862,23 @@
         },
         {
             "name": "composer/spdx-licenses",
-            "version": "1.1.6",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/spdx-licenses.git",
-                "reference": "2603a0d7ddc00a015deb576fa5297ca43dee6b1c"
+                "reference": "2d899e9b33023c631854f36c39ef9f8317a7ab33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/2603a0d7ddc00a015deb576fa5297ca43dee6b1c",
-                "reference": "2603a0d7ddc00a015deb576fa5297ca43dee6b1c",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/2d899e9b33023c631854f36c39ef9f8317a7ab33",
+                "reference": "2d899e9b33023c631854f36c39ef9f8317a7ab33",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3.2 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5 || ^5.0.5",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5",
                 "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"
             },
             "type": "library",
@@ -3917,7 +3919,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2017-04-03T19:08:52+00:00"
+            "time": "2018-01-03T16:37:06+00:00"
         },
         {
             "name": "doctrine/data-fixtures",
@@ -4102,17 +4104,73 @@
             "time": "2017-10-21T13:15:38+00:00"
         },
         {
-            "name": "nikic/php-parser",
-            "version": "v3.1.2",
+            "name": "muglug/package-versions-56",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89"
+                "url": "https://github.com/muglug/PackageVersions.git",
+                "reference": "39491a302ee6f2b96ef6d16b231aaf9ebc3f0779"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/08131e7ff29de6bb9f12275c7d35df71f25f4d89",
-                "reference": "08131e7ff29de6bb9f12275c7d35df71f25f4d89",
+                "url": "https://api.github.com/repos/muglug/PackageVersions/zipball/39491a302ee6f2b96ef6d16b231aaf9ebc3f0779",
+                "reference": "39491a302ee6f2b96ef6d16b231aaf9ebc3f0779",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "composer/composer": "^1.3",
+                "ext-zip": "*",
+                "phpunit/phpunit": "^5.7.5"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Muglug\\PackageVersions\\Installer",
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Muglug\\PackageVersions\\": "src/PackageVersions"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com"
+                },
+                {
+                    "name": "Abdul Malik Ikhsan",
+                    "email": "samsonasik@gmail.com"
+                },
+                {
+                    "name": "Matt Brown",
+                    "email": "github@muglug.com"
+                }
+            ],
+            "description": "A backport of ocramius/package-versions that supports php ^5.6. Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
+            "time": "2018-01-01T14:49:53+00:00"
+        },
+        {
+            "name": "nikic/php-parser",
+            "version": "v3.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "579f4ce846734a1cf55d6a531d00ca07a43e3cda"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/579f4ce846734a1cf55d6a531d00ca07a43e3cda",
+                "reference": "579f4ce846734a1cf55d6a531d00ca07a43e3cda",
                 "shasum": ""
             },
             "require": {
@@ -4150,7 +4208,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2017-11-04T11:48:34+00:00"
+            "time": "2017-12-26T14:43:21+00:00"
         },
         {
             "name": "openlss/lib-array2xml",
@@ -4202,6 +4260,54 @@
             "time": "2016-11-10T19:10:18+00:00"
         },
         {
+            "name": "php-cs-fixer/diff",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHP-CS-Fixer/diff.git",
+                "reference": "f0ef6133d674137e902fdf8a6f2e8e97e14a087b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/diff/zipball/f0ef6133d674137e902fdf8a6f2e8e97e14a087b",
+                "reference": "f0ef6133d674137e902fdf8a6f2e8e97e14a087b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.4.3",
+                "symfony/process": "^3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Kore Nordmann",
+                    "email": "mail@kore-nordmann.de"
+                },
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                },
+                {
+                    "name": "SpacePossum"
+                }
+            ],
+            "description": "sebastian/diff v2 backport support for PHP5.6",
+            "homepage": "https://github.com/PHP-CS-Fixer",
+            "keywords": [
+                "diff"
+            ],
+            "time": "2017-10-19T09:58:18+00:00"
+        },
+        {
             "name": "seld/cli-prompt",
             "version": "1.0.3",
             "source": {
@@ -4251,23 +4357,23 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.6.2",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "7a30649c67ee0d19faacfd9fa2cfb6cc032d9b19"
+                "reference": "9b355654ea99460397b89c132b5c1087b6bf4473"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/7a30649c67ee0d19faacfd9fa2cfb6cc032d9b19",
-                "reference": "7a30649c67ee0d19faacfd9fa2cfb6cc032d9b19",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/9b355654ea99460397b89c132b5c1087b6bf4473",
+                "reference": "9b355654ea99460397b89c132b5c1087b6bf4473",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
             },
             "bin": [
                 "bin/jsonlint"
@@ -4296,7 +4402,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2017-11-30T15:34:22+00:00"
+            "time": "2018-01-03T12:13:57+00:00"
         },
         {
             "name": "seld/phar-utils",
@@ -4398,16 +4504,16 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v3.4.2",
+            "version": "v3.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "074c2e205c849a5fb37b1c24ade03cc975ac8079"
+                "reference": "24ffb71a115c25f5ee56cbfd38e56ed2cdbeb0a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/074c2e205c849a5fb37b1c24ade03cc975ac8079",
-                "reference": "074c2e205c849a5fb37b1c24ade03cc975ac8079",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/24ffb71a115c25f5ee56cbfd38e56ed2cdbeb0a9",
+                "reference": "24ffb71a115c25f5ee56cbfd38e56ed2cdbeb0a9",
                 "shasum": ""
             },
             "require": {
@@ -4427,6 +4533,10 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "3.4-dev"
+                },
+                "thanks": {
+                    "name": "phpunit/phpunit",
+                    "url": "https://github.com/sebastianbergmann/phpunit"
                 }
             },
             "autoload": {
@@ -4456,37 +4566,39 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-            "time": "2017-12-14T19:40:10+00:00"
+            "time": "2018-01-04T17:19:23+00:00"
         },
         {
             "name": "vimeo/psalm",
-            "version": "0.3.71",
+            "version": "0.3.83",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "035f528581bcbcad19a2e141016234eb66b2cd14"
+                "reference": "799aef628ed2b3e85f89de3caca0a578e5275768"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/035f528581bcbcad19a2e141016234eb66b2cd14",
-                "reference": "035f528581bcbcad19a2e141016234eb66b2cd14",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/799aef628ed2b3e85f89de3caca0a578e5275768",
+                "reference": "799aef628ed2b3e85f89de3caca0a578e5275768",
                 "shasum": ""
             },
             "require": {
                 "composer/composer": "^1.3|^1.4|^1.5",
-                "muglug/package-versions": "^1.2.1",
+                "muglug/package-versions-56": "1.2.3",
                 "nikic/php-parser": "^3.1.2",
                 "openlss/lib-array2xml": "^0.0.10||^0.5.1",
-                "php": "^5.6 || ^7.0"
+                "php": "^5.6 || ^7.0",
+                "php-cs-fixer/diff": "^1.2"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.3",
+                "friendsofphp/php-cs-fixer": "^2.3|^2.4|^2.5|^2.6|^2.7|^2.8|^2.9",
                 "php-coveralls/php-coveralls": "^2.0",
                 "phpunit/phpunit": "^5.7.4",
                 "squizlabs/php_codesniffer": "^3.0"
             },
             "bin": [
-                "bin/psalm"
+                "psalm",
+                "psalter"
             ],
             "type": "library",
             "autoload": {
@@ -4509,7 +4621,7 @@
                 "inspection",
                 "php"
             ],
-            "time": "2017-12-19T05:06:05+00:00"
+            "time": "2018-01-20T16:48:16+00:00"
         }
     ],
     "aliases": [],
