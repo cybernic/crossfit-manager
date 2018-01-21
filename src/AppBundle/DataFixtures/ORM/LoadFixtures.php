@@ -22,7 +22,8 @@ class LoadFixtures implements FixtureInterface
         $userAdmin->setName('Admin');
         $userAdmin->setSurname('Tester');
         $userAdmin->setEnabled(true);
-        $userAdmin->addRole('ROLE_ADMIN');
+        $userAdmin->addRole(User::ROLE_COACH);
+        $userAdmin->addRole(User::ROLE_ADMIN);
 
         $userAdmin->setSubscription(
             $manager->getRepository('ScheduleBundle:Subscription')->getByWeeklyTrainings(7)
