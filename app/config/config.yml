@@ -99,7 +99,6 @@ fos_user:
 
 avanzu_admin_theme:
     use_twig   : true
-    enable_demo: false
     theme:
         default_avatar   : bundles/avanzuadmintheme/img/avatar.png
         skin             : skin-green  # see skin listing for viable options
