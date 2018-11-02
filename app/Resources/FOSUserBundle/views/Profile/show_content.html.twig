@@ -7,7 +7,7 @@
             <div class="box-body box-profile">
 
                 {% if vich_uploader_asset(user, 'imageFile') == "" %}
-                    <img class="profile-user-img img-responsive img-circle" src="http://placehold.it/128x128" alt="User profile picture">
+                    <img class="profile-user-img img-responsive img-circle" src="{{ asset('img/no-avatar.jpg') }}" alt="User profile picture">
                 {% else %}
                     <img class="profile-user-img img-responsive img-circle" src="{{ asset(vich_uploader_asset(user, 'imageFile')) | imagine_filter('avatar_128x128') }}" alt="User profile picture">
                 {% endif %}
