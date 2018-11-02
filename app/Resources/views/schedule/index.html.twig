@@ -167,6 +167,7 @@
                     end: currentDate.clone().add(1, 'months')
                 };
             },
+            {% if isAdmin %}
             customButtons: {
                 newEvent: {
                     text: 'Crear entrenamiento',
@@ -175,6 +176,7 @@
                     }
                 }
             },
+            {% endif %}
             header: {
                 left: 'prev,next today newEvent',
                 center: 'title',

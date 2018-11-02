@@ -97,6 +97,7 @@ class EventController extends Controller
         return $this->render('event/show.html.twig', [
             'event' => $event,
             'hasReservation' => $user->hasReservation($event),
+            'isAdmin' => $this->getUser()->hasRole('ROLE_ADMIN'),
         ]);
     }
 

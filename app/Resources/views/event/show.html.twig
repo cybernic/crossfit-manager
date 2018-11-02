@@ -47,6 +47,7 @@
                                 <i class="fa fa-times"></i> Cancelar reserva
                             </a>
                         {% endif %}
+                        {% if isAdmin %}
                         <a href="{{ path('schedule_event_update', {id:event.id}) }}"
                            class="btn btn-sm btn-default btn-update-reservation">
                             <i class="fa fa-pencil"></i> Editar evento
@@ -55,6 +56,7 @@
                            class="btn btn-sm btn-danger btn-cancel-reservation">
                             <i class="fa fa-trash-o"></i> Eliminar evento
                         </a>
+                        {% endif %}
                     </div>
                 </div>
                 {% if event.reservations|length == 0 %}

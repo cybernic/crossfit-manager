@@ -14,7 +14,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('schedule/index.html.twig');
+        return $this->render('schedule/index.html.twig', [
+            'isAdmin' => $this->getUser()->hasRole('ROLE_ADMIN'),
+        ]);
     }
 
     /**
