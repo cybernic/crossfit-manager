@@ -143,5 +143,4 @@ liip_imagine:
             filters:
                 thumbnail: { size : [128, 128], mode : outbound }
 
-ivory_ck_editor:
 
