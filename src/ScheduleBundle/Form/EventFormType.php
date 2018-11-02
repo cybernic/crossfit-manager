@@ -38,6 +38,8 @@ class EventFormType extends AbstractType
             ->add('startsAt', DateTimeType::class, [
                 'date_widget' => 'single_text',
                 'time_widget' => 'choice',
+                'hours' => range(10, 21),
+                'minutes' => [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55],
                 'html5' => false,
                 'attr' => [
                     'class' => 'js-datepicker',
@@ -46,8 +48,8 @@ class EventFormType extends AbstractType
             ])
             ->add('duration', ChoiceType::class, [
                 'choices' => array_combine(
-                    [15, 30, 45, 60, 75, 90, 115, 120],
-                    [15, 30, 45, 60, 75, 90, 115, 120]
+                    [15, 20, 25, 30, 35, 40, 45, 50, 55],
+                    [15, 20, 25, 30, 35, 40, 45, 50, 55]
                 )
             ])
             ->add('days', ChoiceType::class, [
