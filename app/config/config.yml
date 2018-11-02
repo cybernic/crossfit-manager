@@ -146,7 +146,7 @@ liip_imagine:
 fos_ck_editor:
     configs:
         my_config:
-            toolbar: [ ["Source", "-", "Save"], "/", ["Anchor"], "/", ["Maximize"] ]
-            uiColor:                "#000000"
-            filebrowserUploadRoute: "my_route"
-            extraPlugins:           "wordcount"
+            toolbar: [["Format","Bold","Italic","Underline","StrikeThrough","-","Undo","Redo","NumberedList","BulletedList","-","JustifyLeft","JustifyCenter","JustifyRight","-","Link","Source"]]
+            #uiColor:                "#000000"
+            #filebrowserUploadRoute: "my_route"
+            #extraPlugins:           "wordcount"
