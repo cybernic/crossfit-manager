@@ -22,11 +22,7 @@ class EventController extends Controller
     {
         $form = $this->createForm(EventFormType::class);
         $form->handleRequest($request);
-
-        $form->add('days', ChoiceType::class, [
-            'choices' => array_flip(EventFormType::daysOfWeek()),
-            'multiple' => true,
-        ]);
+        $event = new Event();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $event = $form->getData();
@@ -56,7 +52,8 @@ class EventController extends Controller
         }
 
         return $this->render('event/create.html.twig', [
-            'eventForm' => $form->createView()
+            'eventForm' => $form->createView(),
+            'entity' => $event,
         ]);
     }
 
@@ -82,7 +79,8 @@ class EventController extends Controller
         }
 
         return $this->render('event/update.html.twig', [
-            'eventForm' => $form->createView()
+            'eventForm' => $form->createView(),
+            'entity' => $event,
         ]);
     }
 

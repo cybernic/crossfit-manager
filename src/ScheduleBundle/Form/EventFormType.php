@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class EventFormType extends AbstractType
@@ -22,14 +24,14 @@ class EventFormType extends AbstractType
             ->add('program', EntityType::class, [
                 'class' => Program::class,
                 'placeholder' => 'Selecciona programa',
-                'query_builder' => function(ProgramRepository $repo) {
+                'query_builder' => function (ProgramRepository $repo) {
                     return $repo->createActiveOnlyQueryBuilder();
                 }
             ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
                 'placeholder' => 'Selecciona un entrenador',
-                'query_builder' => function(UserRepository $repo) {
+                'query_builder' => function (UserRepository $repo) {
                     return $repo->createTrainerOnlyQueryBuilder();
                 }
             ])
@@ -47,7 +49,25 @@ class EventFormType extends AbstractType
                     [15, 30, 45, 60, 75, 90, 115, 120],
                     [15, 30, 45, 60, 75, 90, 115, 120]
                 )
+            ])
+            ->add('days', ChoiceType::class, [
+                'choices' => array_flip(EventFormType::daysOfWeek()),
+                'multiple' => true,
+                'required' => false,
             ]);
+
+
+        /*$builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
+            $data = $event->getData();
+            $form = $event->getForm();
+
+            if (true) {
+                $form->add('days', ChoiceType::class, [
+                    'choices' => array_flip(EventFormType::daysOfWeek()),
+                    'multiple' => true,
+                ]);
+            }
+        });*/
     }
 
     public function configureOptions(OptionsResolver $resolver)
