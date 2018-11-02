@@ -142,7 +142,7 @@ class EventController extends Controller
 
         $this->addFlash('success', 'El evento se ha eliminado con éxito.');
 
-        return $this->redirectToRoute('schedule_program_index');
+        return $this->redirectToRoute('schedule_default_index');
     }
 
     /**
