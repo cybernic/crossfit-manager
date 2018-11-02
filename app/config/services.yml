@@ -34,9 +34,14 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
-
     app.profile.form:
         class: AppBundle\Form\ProfileFormType
     # Not needed if _defaults.autowire=true
     #    tags:
     #        - { name: form.type }
+
+    #https://stackoverflow.com/a/50494919
+    #for FOSUserBundle >= 2.1
+    #AppBundle\Controller\ProfileController:
+    #    arguments:
+    #        $formFactory: '@fos_user.profile.form.factory'

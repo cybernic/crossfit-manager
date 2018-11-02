@@ -1,9 +1,9 @@
 version: '2'
 services:
     db:
-        image: mysql
+        image: mysql:5.7
         volumes:
-            - "./.data/db:/var/lib/mysql"
+            - "./.data/db2:/var/lib/mysql"
         environment:
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
             MYSQL_DATABASE: ${MYSQL_DATABASE}
