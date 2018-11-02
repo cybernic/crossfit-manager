@@ -59,7 +59,7 @@ easy_admin:
                 fields:
                     - { type: 'group', css_class: 'col-md-9', label: 'Noticia', icon: 'pencil'}
                     - title
-                    - { property: 'text', type: 'ckeditor' }
+                    - { property: 'text', type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
                     - { property: 'created_at', type: 'datetime', type_options: { required: true } }
                     - user
         Program:
@@ -77,7 +77,7 @@ easy_admin:
                 fields:
                     - { type: 'group', css_class: 'col-md-8', label: 'Programa', icon: 'pencil'}
                     - title
-                    - { property: 'description', type: 'ckeditor' }
+                    - { property: 'description', type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
                     - { property: 'color', type: 'AppBundle\Form\Type\ColorType', type_options: { required: false } }
                     - places
             edit:

@@ -143,4 +143,10 @@ liip_imagine:
             filters:
                 thumbnail: { size : [128, 128], mode : outbound }
 
-
+fos_ck_editor:
+    configs:
+        my_config:
+            toolbar: [ ["Source", "-", "Save"], "/", ["Anchor"], "/", ["Maximize"] ]
+            uiColor:                "#000000"
+            filebrowserUploadRoute: "my_route"
+            extraPlugins:           "wordcount"
