@@ -1,6 +1,6 @@
 {% extends 'adminlte.base.html.twig' %}
 
-{% block avanzu_page_title %}Nuevo Evento{% endblock %}
+{% block avanzu_page_title %}Editar Evento{% endblock %}
 {% block avanzu_page_subtitle %}{% endblock %}
 
 {% block avanzu_head %}
@@ -38,12 +38,9 @@
                         <div class="col-md-4 col-lg-4">
                             {{ form_row(eventForm.duration) }}
                         </div>
-                        <div class="col-xs-12">
-                            {{ form_row(eventForm.days) }}
-                        </div>
                     </div>
 
-                    <button type="submit" class="btn btn-success" formnovalidate>Crear evento</button>
+                    <button type="submit" class="btn btn-success" formnovalidate>Guardar evento</button>
                     {{ form_end(eventForm) }}
                 </div>
             </div>

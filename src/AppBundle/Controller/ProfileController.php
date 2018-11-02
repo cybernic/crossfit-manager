@@ -2,6 +2,9 @@
 
 namespace AppBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
@@ -14,7 +17,11 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 class ProfileController extends \FOS\UserBundle\Controller\ProfileController
 {
     /**
-     * Show the user.
+     * * Show the user.
+     * @Route("/profile", name="profile")
+     *
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function showAction()
     {
@@ -27,9 +34,9 @@ class ProfileController extends \FOS\UserBundle\Controller\ProfileController
 
         $notifications = $em->getRepository('ScheduleBundle:Notification')->getLastNotifications();
 
-        return $this->render('@FOSUser/Profile/show.html.twig', array(
+        return $this->render('@FOSUser/Profile/show.html.twig', [
             'user' => $user,
             'notifications' => $notifications,
-        ));
+        ]);
     }
 }

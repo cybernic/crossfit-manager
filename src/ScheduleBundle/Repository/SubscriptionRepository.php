@@ -32,7 +32,7 @@ class SubscriptionRepository extends EntityRepository
             ->where('subscription.weeklyTrainings=:trainings')
             ->andWhere('subscription.isActive=:isActive')
             ->setParameter('trainings', $trainings)
-            ->setParameter('isActive', true)
+            ->setParameter(':isActive', true)
             ->getQuery()
             ->getSingleResult();
     }

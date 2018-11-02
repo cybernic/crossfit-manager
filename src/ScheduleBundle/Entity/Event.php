@@ -62,6 +62,8 @@ class Event
      */
     private $reservations;
 
+    private $days;
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
@@ -70,6 +72,12 @@ class Event
     public function __toString()
     {
         return $this->getProgram()->getTitle();
+    }
+
+    public function __clone()
+    {
+        $this->id = null;
+        $this->startsAt = clone $this->startsAt;
     }
 
     /**
@@ -186,5 +194,21 @@ class Event
         }
 
         return (int)(count($this->getReservations()) / $this->getProgram()->getPlaces() * 100);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDays()
+    {
+        return $this->days;
+    }
+
+    /**
+     * @param mixed $days
+     */
+    public function setDays($days)
+    {
+        $this->days = $days;
     }
 }

@@ -10,6 +10,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -35,9 +36,10 @@ class EventFormType extends AbstractType
             ->add('startsAt', DateTimeType::class, [
                 'date_widget' => 'single_text',
                 'time_widget' => 'choice',
-                //'html5' => false,
+                'html5' => false,
                 'attr' => [
                     'class' => 'js-datepicker',
+                    'data-date-format' => 'yy-mm-dd',
                 ]
             ])
             ->add('duration', ChoiceType::class, [
@@ -53,5 +55,18 @@ class EventFormType extends AbstractType
         $resolver->setDefaults([
             'data_class' => 'ScheduleBundle\Entity\Event',
         ]);
+    }
+
+    public static function daysOfWeek()
+    {
+        return [
+            'monday' => 'Lunes',
+            'tuesday' => 'Martes',
+            'wednesday' => 'Miercoles',
+            'thursday' => 'Jueves',
+            'friday' => 'Viernes',
+            'saturday' => 'Sabado',
+            'sunday' => 'Domingo',
+        ];
     }
 }

@@ -1,7 +1,7 @@
 {% extends 'adminlte.base.html.twig' %}
 
 {% block avanzu_page_title %}Entrenamiento{% endblock %}
-{% block avanzu_page_subtitle %}{{ event.program.title }}{% endblock %}
+{% block avanzu_page_subtitle %}{{ event.program.title }} - {{ event.startsAt|date('Y-m-d H:i') }}{% endblock %}
 
 {% block custom_page_content %}
     <div class="row">
@@ -47,6 +47,10 @@
                                 <i class="fa fa-times"></i> Cancelar reserva
                             </a>
                         {% endif %}
+                        <a href="{{ path('schedule_event_update', {id:event.id}) }}"
+                           class="btn btn-sm btn-default btn-update-reservation">
+                            <i class="fa fa-pencil"></i> Editar evento
+                        </a>
                         <a href="{{ path('schedule_event_drop', {id:event.id}) }}"
                            class="btn btn-sm btn-danger btn-cancel-reservation">
                             <i class="fa fa-trash-o"></i> Eliminar evento

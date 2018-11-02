@@ -9,6 +9,7 @@ use ScheduleBundle\Form\EventFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 
 class EventController extends Controller
@@ -20,7 +21,52 @@ class EventController extends Controller
     public function createAction(Request $request)
     {
         $form = $this->createForm(EventFormType::class);
+        $form->handleRequest($request);
 
+        $form->add('days', ChoiceType::class, [
+            'choices' => array_flip(EventFormType::daysOfWeek()),
+            'multiple' => true,
+        ]);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $event = $form->getData();
+
+            /** @var \DateTime $firstDate */
+            $firstDate = $event->getStartsAt();
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($event);
+            $em->flush();
+
+            if (!empty($event->getDays())) {
+                foreach ($event->getDays() as $day) {
+                    $newEvent = clone $event;
+                    $newEvent->getStartsAt()->modify("{$day} this week")->setTime($firstDate->format('H'), $firstDate->format('i'));
+
+                    if ($firstDate->getTimestamp() !== $newEvent->getStartsAt()->getTimestamp()) {
+                        $em->persist($newEvent);
+                        $em->flush();
+                    }
+                }
+            }
+
+            $this->addFlash('success', 'El evento creado con éxito.');
+
+            return $this->redirectToRoute('schedule_default_index');
+        }
+
+        return $this->render('event/create.html.twig', [
+            'eventForm' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/event/{id}/update", name="schedule_event_update")
+     * @Security("has_role('ROLE_ADMIN')")
+     */
+    public function updateAction(Request $request, Event $event)
+    {
+        $form = $this->createForm(EventFormType::class, $event);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -30,12 +76,12 @@ class EventController extends Controller
             $em->persist($event);
             $em->flush();
 
-            $this->addFlash('success', 'El evento creado con éxito.');
+            $this->addFlash('success', 'El evento guardado con éxito.');
 
-            return $this->redirectToRoute('schedule_default_index');
+            return $this->redirectToRoute('schedule_event_show', ['id' => $event->getId()]);
         }
 
-        return $this->render('event/create.html.twig', [
+        return $this->render('event/update.html.twig', [
             'eventForm' => $form->createView()
         ]);
     }
