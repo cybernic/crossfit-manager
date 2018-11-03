@@ -33,9 +33,9 @@ class MenuItemListListener {
             new MenuItemModel('right-menu-logout', 'Cerrar Sesión', 'fos_user_security_logout', [], 'fa fa-sign-out'),
 
             new MenuItemModel('right-menu-admin', 'ADMINISTRAR', false),
-            new MenuItemModel('right-menu-easyadmin-users', 'Usuarios', 'easyadmin', ['entity' => 'User', 'action' => 'list', 'menuIndex' => 0], 'fa fa-users'),
-            new MenuItemModel('right-menu-easyadmin-news', 'Noticias', 'easyadmin', ['entity' => 'Notification', 'action' => 'list', 'menuIndex' => 1], 'fa fa-newspaper-o'),
-            new MenuItemModel('right-menu-easyadmin-program', 'Programas', 'easyadmin', ['entity' => 'Program', 'action' => 'list', 'menuIndex' => 1], 'fa fa-calendar'),
+            new MenuItemModel('right-menu-easyadmin-users', 'Usuarios', 'easyadmin', ['entity' => 'User', 'action' => 'list', 'menuIndex' => 1], 'fa fa-users'),
+            new MenuItemModel('right-menu-easyadmin-news', 'Noticias', 'easyadmin', ['entity' => 'Notification', 'action' => 'list', 'menuIndex' => 2], 'fa fa-newspaper-o'),
+            new MenuItemModel('right-menu-easyadmin-program', 'Programas', 'easyadmin', ['entity' => 'Program', 'action' => 'list', 'menuIndex' => 3], 'fa fa-calendar'),
         ];
 
         if (!$this->tokenStorage->getToken()->getUser()->hasRole('ROLE_ADMIN')) {
